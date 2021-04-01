@@ -7,7 +7,8 @@ import android.widget.Button
 
 import com.br.seventh_art.R
 
-class LoginActivity : AppCompatActivity() {
+class
+LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)

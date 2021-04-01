@@ -27,10 +27,14 @@ class SignUpActivity : AppCompatActivity(), Utils {
 
     private fun initClick() {
         buttonLogIn.setOnClickListener{
-            if(validateName(username) && validateEmail(emailSignUp) && validadePassword(passwordSignUp) && validadeConfirmPassword(passwordSignUp,confirmPassword)){
+            if(validateName(username) && validateEmail(emailSignUp) && validatePassword(passwordSignUp) && validateConfirmPassword(passwordSignUp,confirmPassword)){
                 val intent = Intent(this,CategoryContentActivity::class.java)
                 startActivity(intent)
             }
+        }
+
+        buttonBack.setOnClickListener{
+            onBackPressed()
         }
     }
 }
