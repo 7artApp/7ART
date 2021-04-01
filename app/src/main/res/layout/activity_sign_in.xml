@@ -26,17 +26,19 @@
         android:fontFamily="@font/bebas_neue_regular"
         app:layout_constraintBottom_toTopOf="@+id/backdrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/back"
+        app:layout_constraintStart_toStartOf="@+id/button_back"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/back"
+        android:id="@+id/button_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/backdrop"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/vector"
         tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="25dp"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/username_sign_in"
@@ -61,8 +63,7 @@
         android:text="Password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_sign_in"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/username_sign_in" />
 
     <Button
         android:id="@+id/button_log_in"
@@ -74,8 +75,7 @@
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_sign_in"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/password_sign_in" />
 
     <TextView
         android:id="@+id/textView4"
@@ -90,26 +90,23 @@
         app:layout_constraintTop_toBottomOf="@+id/button_log_in" />
 
     <ImageView
-        android:id="@+id/google_sign_in"
+        android:id="@+id/google_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/facebook_sign_up"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:srcCompat="@drawable/google_logo" />
+        app:srcCompat="@drawable/google_logo"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/facebook_sign_in"
+        android:id="@+id/facebook_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toEndOf="@+id/google_sign_in"
         app:srcCompat="@drawable/facebook_logo"
-        tools:layout_editor_absoluteY="484dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="228dp"
+        tools:layout_editor_absoluteY="473dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
