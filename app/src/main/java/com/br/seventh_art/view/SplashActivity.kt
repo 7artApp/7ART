@@ -25,7 +25,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.br.seventh_art.R
-import com.br.seventh_art.ui.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
 
