@@ -1,0 +1,31 @@
+package com.br.seventh_art.view
+
+import android.content.Intent
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.Button
+
+import com.br.seventh_art.R
+
+class
+LoginActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
+
+        val signInButton by lazy { findViewById<Button>(R.id.button_sign_in_login) }
+        val signUPButton by lazy { findViewById<Button>(R.id.button_sign_up_login) }
+
+        signInButton.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
+            startActivity(intent)
+        }
+
+        signUPButton.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+
+ }
+}
+
