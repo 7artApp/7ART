@@ -24,7 +24,7 @@ class SignInActivity: AppCompatActivity(), Utils {
 
     private fun initClick() {
         buttonLogin.setOnClickListener {
-            if (validadePassword(passwordSignIn) && validateEmail(emailSignIn)) {
+            if (validatePassword(passwordSignIn) && validateEmail(emailSignIn)) {
                 val intent = Intent(this, CategoryContentActivity::class.java)
                 startActivity(intent)
             }

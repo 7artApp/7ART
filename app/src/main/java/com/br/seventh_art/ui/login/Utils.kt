@@ -8,22 +8,21 @@ interface Utils {
         if (android.util.Patterns.EMAIL_ADDRESS.matcher(layout.editText?.text.toString()).matches()) {
             return true
         }else{
-            layout.error = "E-mail Invalido"
+            layout.error = "E-mail Inválido"
             return false
         }
     }
 
-    fun validadePassword(layout: TextInputLayout):Boolean{
+    fun validatePassword(layout: TextInputLayout):Boolean{
         if (layout.editText?.text.toString().isNotEmpty()){
             return true
         }else {
-            layout.error = "Senha Invalida"
+            layout.error = "Senha Inválida"
             return false
         }
     }
 
-
-    fun validadeConfirmPassword(layoutPassword: TextInputLayout, layoutConfirmPassword: TextInputLayout): Boolean{
+    fun validateConfirmPassword(layoutPassword: TextInputLayout, layoutConfirmPassword: TextInputLayout): Boolean{
         if (layoutPassword.editText?.text.toString() == layoutConfirmPassword.editText?.text.toString()){
             return true
         }else{
@@ -39,8 +38,5 @@ interface Utils {
             layout.error = "Nome não pode estar vazio"
             return false
         }
-
-
     }
-
 }
