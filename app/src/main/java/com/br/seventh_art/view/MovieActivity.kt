@@ -2,13 +2,10 @@ package com.br.seventh_art.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
-import android.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.br.seventh_art.R
 import com.br.seventh_art.adapter.MovieAdapter
-import com.br.seventh_art.model.Content
 import com.br.seventh_art.singleton.MovieList
 
 class MovieActivity : AppCompatActivity() {

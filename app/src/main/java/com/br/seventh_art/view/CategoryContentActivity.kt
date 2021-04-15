@@ -10,13 +10,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.br.seventh_art.R
-import com.br.seventh_art.adapter.CategoryContentListAdapter
-import com.br.seventh_art.model.CategoryContent
-import com.br.seventh_art.view.SeriesCategoryContentActivity
+
+//import com.br.seventh_art.adapter.CategoryContentListAdapter
+//import com.br.seventh_art.model.CategoryContent
+//import com.br.seventh_art.view.SeriesCategoryContentActivity
 
 
 class CategoryContentActivity : AppCompatActivity() {
-    var gridLayoutManager:GridLayoutManager? = null
+    var gridLayoutManager: GridLayoutManager? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,38 +33,39 @@ class CategoryContentActivity : AppCompatActivity() {
 //        val tvFilmes by lazy { findViewById<TextView>(R.id.category_content_activity_toolbar_filmes) }
         val tvSeries by lazy { findViewById<TextView>(R.id.category_content_activity_toolbar_Series) }
 
-        val list = categoryList().toList()
+//        val list = categoryList().toList()
 
-        gridLayoutManager = GridLayoutManager(applicationContext, 2,LinearLayoutManager.VERTICAL, false)
+//        gridLayoutManager = GridLayoutManager(applicationContext, 2,LinearLayoutManager.VERTICAL, false)
+//
+//        recyclerView.layoutManager = gridLayoutManager
+//
+//        recyclerView.adapter = CategoryContentListAdapter(list)
+//
+//        tvSeries.setOnClickListener {
+//            Intent(this, SeriesCategoryContentActivity::class.java).also {
+//                startActivity(it)
+//            }
+//        }
+//    }
 
-        recyclerView.layoutManager = gridLayoutManager
+//    private fun categoryList(): MutableList<CategoryContent> {
+//        val list = mutableListOf<CategoryContent>()
+//
+//        list.clear()
+//        list.add(CategoryContent(R.drawable.poster_soul,"Comédia"))
+//        list.add(CategoryContent( R.drawable.poster_psycho,"Terror"))
+//        list.add(CategoryContent( R.drawable.poster_inception,"Ação"))
+//        list.add(CategoryContent( R.drawable.poster_doentes_de_amor,"Romance"))
+//        list.add(CategoryContent(R.drawable.poster_lista_de_schindler,"Drama"))
+//        list.add(CategoryContent(R.drawable.poster_jumanji,"Documentários"))
+//        list.add(CategoryContent( R.drawable.poster_jumanji,"Suspense"))
+//        list.add(CategoryContent(R.drawable.poster_soul,"Animações"))
+//        list.add(CategoryContent( R.drawable.poster_nova_ordem_espacial,"Ficção científica"))
+//
+//        return list
+//    }
 
-        recyclerView.adapter = CategoryContentListAdapter(list)
 
-        tvSeries.setOnClickListener {
-            Intent(this, SeriesCategoryContentActivity::class.java).also {
-                startActivity(it)
-            }
-        }
     }
-
-    private fun categoryList(): MutableList<CategoryContent> {
-        val list = mutableListOf<CategoryContent>()
-
-        list.clear()
-        list.add(CategoryContent(R.drawable.poster_soul,"Comédia"))
-        list.add(CategoryContent( R.drawable.poster_psycho,"Terror"))
-        list.add(CategoryContent( R.drawable.poster_inception,"Ação"))
-        list.add(CategoryContent( R.drawable.poster_doentes_de_amor,"Romance"))
-        list.add(CategoryContent(R.drawable.poster_lista_de_schindler,"Drama"))
-        list.add(CategoryContent(R.drawable.poster_jumanji,"Documentários"))
-        list.add(CategoryContent( R.drawable.poster_jumanji,"Suspense"))
-        list.add(CategoryContent(R.drawable.poster_soul,"Animações"))
-        list.add(CategoryContent( R.drawable.poster_nova_ordem_espacial,"Ficção científica"))
-
-        return list
-    }
-
-
 
 }
