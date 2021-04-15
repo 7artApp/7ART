@@ -24,7 +24,6 @@
         android:text="SIGN IN"
         android:textColor="@color/white"
         android:textSize="50dp"
-        android:fontFamily="@font/bebas_neue_regular"
         app:layout_constraintBottom_toTopOf="@+id/backdrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/button_back"
