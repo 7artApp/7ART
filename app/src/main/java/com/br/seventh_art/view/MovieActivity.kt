@@ -11,7 +11,7 @@ import com.br.seventh_art.singleton.MovieList
 class MovieActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_content)
+        setContentView(R.layout.activity_content)
 
         initViews()
     }
@@ -27,6 +27,5 @@ class MovieActivity : AppCompatActivity() {
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         recyclerView.adapter = MovieAdapter(list)
-
     }
 }

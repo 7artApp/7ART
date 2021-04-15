@@ -11,7 +11,7 @@
         android:id="@+id/backdrop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
         android:src="@drawable/backdrop"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,16 +33,20 @@
         android:id="@+id/button_back_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/backdrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
         app:srcCompat="@drawable/vector"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="25dp"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/username_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:ems="15"
         android:inputType="textPersonName"
         android:text="Username"
@@ -83,9 +87,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="366dp"
         android:ems="15"
         android:inputType="textPassword"
         android:text="Password"
+        app:layout_constraintBottom_toBottomOf="@+id/backdrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,7 +111,7 @@
         app:layout_constraintTop_toBottomOf="@+id/confirm_password" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textLog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -123,7 +129,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toStartOf="@+id/facebook_sign_up"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textLog"
         app:srcCompat="@drawable/google_logo"
         tools:ignore="MissingConstraints" />
 
@@ -133,8 +139,8 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/facebook_logo"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="233dp"
-        tools:layout_editor_absoluteY="521dp" />
+        tools:layout_editor_absoluteX="226dp"
+        tools:layout_editor_absoluteY="557dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
