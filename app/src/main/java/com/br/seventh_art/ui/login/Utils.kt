@@ -7,7 +7,7 @@ interface Utils {
     fun validateEmail(layout: TextInputLayout):Boolean {
         if (android.util.Patterns.EMAIL_ADDRESS.matcher(layout.editText?.text.toString()).matches()) {
             return true
-        }else{
+        } else {
             layout.error = "E-mail Inválido"
             return false
         }
@@ -16,7 +16,7 @@ interface Utils {
     fun validatePassword(layout: TextInputLayout):Boolean{
         if (layout.editText?.text.toString().isNotEmpty()){
             return true
-        }else {
+        } else {
             layout.error = "Senha Inválida"
             return false
         }
@@ -25,7 +25,7 @@ interface Utils {
     fun validateConfirmPassword(layoutPassword: TextInputLayout, layoutConfirmPassword: TextInputLayout): Boolean{
         if (layoutPassword.editText?.text.toString() == layoutConfirmPassword.editText?.text.toString()){
             return true
-        }else{
+        } else {
             layoutConfirmPassword.error = "Senhas não correspondem"
             return false
         }

@@ -35,7 +35,5 @@ class CategoryContentListAdapter (
                 val intent = Intent(it.context, MovieActivity::class.java)
                 it.context.startActivity(intent)
             }
-
-
         }
     }
