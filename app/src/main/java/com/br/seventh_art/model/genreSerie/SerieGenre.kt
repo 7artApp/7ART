@@ -1,4 +1,4 @@
-package com.br.seventh_art.data.model.genreSerie
+package com.br.seventh_art.model.genreSerie
 
 data class SerieGenre(
     val id: Int,

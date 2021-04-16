@@ -1,6 +1,6 @@
 package com.br.seventh_art.data
 
-import com.br.seventh_art.data.model.LoggedInUser
+import com.br.seventh_art.model.LoggedInUser
 
 /**
  * Class that requests authentication and user information from the remote data source and

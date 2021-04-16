@@ -8,7 +8,9 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.br.seventh_art.R
 import com.br.seventh_art.ui.login.Utils
-import com.google.android.material.textfield.TextInputLayout
+import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
+
+//import com.br.seventh_art.view.genres.moviMoviesGenresActivity
 
 class SignUpActivity : AppCompatActivity(), Utils {
 
@@ -27,12 +29,13 @@ class SignUpActivity : AppCompatActivity(), Utils {
     }
 
     private fun initClick() {
-        buttonLogIn.setOnClickListener{
-            if(validateName(username) && validateEmail(emailSignUp) && validatePassword(passwordSignUp) && validateConfirmPassword(passwordSignUp,confirmPassword)){
-                val intent = Intent(this,CategoryContentActivity::class.java)
-                startActivity(intent)
-            }
-        }
+//        buttonLogIn.setOnClickListener{
+//            if(validateName(username) && validateEmail(emailSignUp) && validatePassword(passwordSignUp) && validateConfirmPassword(passwordSignUp,confirmPassword)){
+//                val intent = Intent(this,
+//                    MoviesGenresActivity::class.java)
+//                startActivity(intent)
+//            }
+//        }
 
         buttonBack.setOnClickListener{
             onBackPressed()

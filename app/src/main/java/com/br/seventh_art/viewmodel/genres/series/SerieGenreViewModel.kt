@@ -1,9 +1,8 @@
-package com.br.seventh_art.viewmodel
+package com.br.seventh_art.viewmodel.genres.series
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.br.seventh_art.data.model.genreMovie.MovieGenre
-import com.br.seventh_art.data.model.genreSerie.SerieGenre
+import com.br.seventh_art.model.genreSerie.SerieGenre
 import com.br.seventh_art.repository.Repository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
