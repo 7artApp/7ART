@@ -1,64 +1,75 @@
-//package com.br.seventh_art.view.genres.series.activity
-//
-//import android.content.Intent
-//import androidx.appcompat.app.AppCompatActivity
-//import android.os.Bundle
-//import android.widget.TextView
-//import androidx.recyclerview.widget.GridLayoutManager
-//import androidx.recyclerview.widget.LinearLayoutManager
-//import androidx.recyclerview.widget.RecyclerView
-//import com.br.seventh_art.R
-//import com.br.seventh_art.adapter.CategoryContentListAdapter
-//import com.br.seventh_art.model.CategoryContent
-//
-//
-//class SeriesGenresActivity : AppCompatActivity() {
-//    var gridLayoutManager:GridLayoutManager? = null
-//
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.series_category_activity_content)
-//        initViews()
-//
-//    }
-//
-//    private fun initViews() {
-//        val recyclerView by lazy { findViewById<RecyclerView>(R.id.series_category_content_activity_recycler_view) }
-//        val tvFilmes by lazy { findViewById<TextView>(R.id.series_category_content_activity_toolbar_filmes) }
-////        val toolbar by lazy { findViewById<Toolbar>(R.id.series_category_content_activity_toolbar) }
-////        val tvSeries by lazy { findViewById<TextView>(R.id.series_category_content_activity_toolbar_Series) }
-////        val divider by lazy { findViewById<View>(R.id.divider3) }
-//
-//        val list = categoryList().toList()
-//
-//        gridLayoutManager = GridLayoutManager(applicationContext, 2,LinearLayoutManager.VERTICAL, false)
-//
-//        recyclerView.layoutManager = gridLayoutManager
-//
-//        recyclerView.adapter = CategoryContentListAdapter(list)
-//
-//        tvFilmes.setOnClickListener {
-//          Intent(this, MoviesGenresActivity::class.java).also { startActivity(it) }
-//        }
-//    }
-//
-//    private fun categoryList(): MutableList<CategoryContent> {
-//        val list = mutableListOf<CategoryContent>()
-//        list.clear()
-//        list.add(CategoryContent(R.drawable.poster_soul,"Séries de Comédia"))
-//        list.add(CategoryContent( R.drawable.poster_psycho,"Séries de Terror"))
-//        list.add(CategoryContent( R.drawable.poster_inception,"Séries de Ação"))
-//        list.add(CategoryContent( R.drawable.poster_doentes_de_amor,"Séries Romànticas"))
-//        list.add(CategoryContent(R.drawable.poster_lista_de_schindler,"Séries de Drama"))
-//        list.add(CategoryContent(R.drawable.poster_jumanji,"Séries Documentais"))
-//        list.add(CategoryContent( R.drawable.poster_jumanji,"Séries de Suspense"))
-//        list.add(CategoryContent(R.drawable.poster_soul,"Séries animadas"))
-//        list.add(CategoryContent( R.drawable.poster_nova_ordem_espacial,"Séries de Ficção científica"))
-//
-//        return list
-//    }
-//
-//
-//
-//}
+package com.br.seventh_art.view.genres.series.activity
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.br.seventh_art.R
+import com.br.seventh_art.model.genreSerie.SerieGenre
+import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
+import com.br.seventh_art.view.genres.series.adapter.SerieGenresAdapter
+import com.br.seventh_art.viewmodel.genres.series.SerieGenreViewModel
+
+class SeriesGenresActivity : AppCompatActivity() {
+
+    //DECLARAÇÃO DA LISTA QUE RECEBE OS DADOS DA VIEWMODEL DE SERIE GENRE E É PARÂMETRO DO ADAPTER
+    var serieGenreList = mutableListOf<SerieGenre>()
+
+    //DECLARAÇÃO DA VIEWMODEL DE SERIE GENRE
+    private val viewModelSerieGenres by lazy {
+        ViewModelProviders.of(this).get(SerieGenreViewModel::class.java)
+    }
+
+    //DECLARAÇÃO DO RECYCLERVIEW ASSOCIADA À ACTIVITY
+    private val recyclerView by lazy { findViewById<RecyclerView>(R.id.serie_genres_recyclerview) }
+
+    //DECLARAÇÃO DO TEXTVIEW QUE ENDEREÇA À TELA DE FILMES
+    private val moviesButton by lazy { findViewById<TextView>(R.id.text_series_genres_movies) }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        super.onCreate(savedInstanceState)
+
+        initView()
+        setRecyclerView()
+        setViewModel()
+        goToMovies()
+
+
+    }
+
+    private fun initView() = setContentView(R.layout.activity_genres_series)
+
+    private fun setRecyclerView() {
+
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        recyclerView.adapter = SerieGenresAdapter(serieGenreList, this)
+    }
+
+    private fun setViewModel() {
+
+        viewModelSerieGenres.getAllSerieGenre()
+        viewModelSerieGenres.listMutableSerieGenre.observe(this, Observer {
+            it?.let { itChar ->
+                serieGenreList.addAll(itChar)
+                recyclerView.adapter?.notifyDataSetChanged()
+
+            }
+        })
+    }
+
+    private fun goToMovies(){
+
+        moviesButton.setOnClickListener{
+
+            val intent = Intent(this, MoviesGenresActivity::class.java)
+            it.context.startActivity(intent)
+        }
+    }
+
+
+}

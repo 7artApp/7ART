@@ -1,6 +1,8 @@
 package com.br.seventh_art.view.genres.movies.activity
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.br.seventh_art.R
 import com.br.seventh_art.model.genreMovie.MovieGenre
 import com.br.seventh_art.view.genres.movies.adapter.MovieGenresAdapter
+import com.br.seventh_art.view.genres.series.activity.SeriesGenresActivity
 import com.br.seventh_art.viewmodel.genres.movies.MovieGenreViewModel
 
 class MoviesGenresActivity : AppCompatActivity() {
@@ -24,6 +27,9 @@ class MoviesGenresActivity : AppCompatActivity() {
     //DECLARAÇÃO DO RECYCLERVIEW ASSOCIADA À ACTIVITY
     private val recyclerView by lazy { findViewById<RecyclerView>(R.id.movie_genres_recyclerview) }
 
+    //DECLARAÇÃO DO TEXTVIEW QUE ENDEREÇA À TELA DE SÉRIES
+    private val seriesButton by lazy { findViewById<TextView>(R.id.text_movie_genres_series) }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -32,11 +38,12 @@ class MoviesGenresActivity : AppCompatActivity() {
         initView()
         setRecyclerView()
         setViewModel()
+        goToSeries()
 
 
     }
 
-    private fun initView() = setContentView(R.layout.activity_movies_genres)
+    private fun initView() = setContentView(R.layout.activity_genres_movies)
 
     private fun setRecyclerView() {
 
@@ -51,11 +58,17 @@ class MoviesGenresActivity : AppCompatActivity() {
             it?.let { itChar ->
                 movieGenreList.addAll(itChar)
                 recyclerView.adapter?.notifyDataSetChanged()
-
-
             }
         })
     }
 
+    private fun goToSeries(){
+
+        seriesButton.setOnClickListener{
+
+            val intent = Intent(this, SeriesGenresActivity::class.java)
+            it.context.startActivity(intent)
+        }
+    }
 
 }

@@ -13,7 +13,7 @@ class MovieGenresAdapter(val movieGenres: List<MovieGenre>, val context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieGenresViewHolder {
         val view =
-            LayoutInflater.from(context).inflate(R.layout.cardview_movie_genres, parent, false)
+            LayoutInflater.from(context).inflate(R.layout.cardview_genres_movies, parent, false)
         return MovieGenresViewHolder(view)
     }
 

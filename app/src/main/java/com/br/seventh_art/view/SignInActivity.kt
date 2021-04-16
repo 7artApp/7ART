@@ -8,13 +8,16 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.br.seventh_art.R
 import com.br.seventh_art.ui.login.Utils
-import com.br.seventh_art.view.genres.MoviesGenresActivity
+import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
+import com.google.android.material.textfield.TextInputLayout
+
+//import com.br.seventh_art.view.genres.MoviesGenresActivity
 
 class SignInActivity: AppCompatActivity(), Utils {
 
     private val buttonLogin by lazy { findViewById<Button>(R.id.button_log_in) }
-    private val emailSignIn by lazy { findViewById<EditText>(R.id.username_sign_in) }
-    private val passwordSignIn by lazy { findViewById<EditText>(R.id.password_sign_in) }
+    private val emailSignIn by lazy { findViewById<TextInputLayout>(R.id.username_sign_in) }
+    private val passwordSignIn by lazy { findViewById<TextInputLayout>(R.id.password_sign_in) }
     private val buttonBack by lazy { findViewById<Button>(R.id.button_back) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
