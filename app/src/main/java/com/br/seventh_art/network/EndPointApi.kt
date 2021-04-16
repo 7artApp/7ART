@@ -1,7 +1,7 @@
 package com.br.seventh_art.network
 
-import com.br.seventh_art.data.model.genreMovie.MovieGenreResponse
-import com.br.seventh_art.data.model.genreSerie.SerieGenreResponse
+import com.br.seventh_art.model.genreMovie.MovieGenreResponse
+import com.br.seventh_art.model.genreSerie.SerieGenreResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

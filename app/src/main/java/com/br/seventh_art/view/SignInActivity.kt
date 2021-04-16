@@ -8,7 +8,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.br.seventh_art.R
 import com.br.seventh_art.ui.login.Utils
-import com.google.android.material.textfield.TextInputLayout
+import com.br.seventh_art.view.genres.MoviesGenresActivity
 
 class SignInActivity: AppCompatActivity(), Utils {
 
@@ -26,7 +26,7 @@ class SignInActivity: AppCompatActivity(), Utils {
     private fun initClick() {
         buttonLogin.setOnClickListener {
             if (validatePassword(passwordSignIn) && validateEmail(emailSignIn)) {
-                val intent = Intent(this, CategoryContentActivity::class.java)
+                val intent = Intent(this, MoviesGenresActivity::class.java)
                 startActivity(intent)
             }
 

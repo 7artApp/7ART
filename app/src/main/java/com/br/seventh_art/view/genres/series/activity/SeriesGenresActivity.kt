@@ -1,4 +1,4 @@
-//package com.br.seventh_art.view
+//package com.br.seventh_art.view.genres.series.activity
 //
 //import android.content.Intent
 //import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +12,7 @@
 //import com.br.seventh_art.model.CategoryContent
 //
 //
-//class SeriesCategoryContentActivity : AppCompatActivity() {
+//class SeriesGenresActivity : AppCompatActivity() {
 //    var gridLayoutManager:GridLayoutManager? = null
 //
 //
@@ -39,7 +39,7 @@
 //        recyclerView.adapter = CategoryContentListAdapter(list)
 //
 //        tvFilmes.setOnClickListener {
-//          Intent(this, CategoryContentActivity::class.java).also { startActivity(it) }
+//          Intent(this, MoviesGenresActivity::class.java).also { startActivity(it) }
 //        }
 //    }
 //
