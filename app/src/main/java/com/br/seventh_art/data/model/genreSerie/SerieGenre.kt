@@ -1,6 +1,6 @@
 package com.br.seventh_art.data.model.genreSerie
 
-data class Genre(
+data class SerieGenre(
     val id: Int,
     val name: String
 )
