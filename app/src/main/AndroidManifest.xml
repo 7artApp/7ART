@@ -17,10 +17,10 @@
         <activity android:name=".view.SignInActivity" />
         <activity android:name=".view.SignUpActivity" />
         <activity android:name=".view.LoginActivity" />
-        <activity android:name=".view.SplashActivity" />
+        <activity android:name=".view.genres.series.activity.SeriesGenresActivity" />
         <activity android:name=".view.genres.movies.activity.MoviesGenresActivity"/>
-            <activity android:name=".view.ProfileActivity" />
-        <activity android:name=".view.genres.series.activity.SeriesGenresActivity">
+        <activity android:name=".view.ProfileActivity" />
+        <activity android:name=".view.SplashActivity">
         <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

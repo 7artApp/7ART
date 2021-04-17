@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.br.seventh_art.R
-import com.br.seventh_art.model.genreMovie.MovieGenre
+import com.br.seventh_art.model.movie.genreMovie.MovieGenre
 import com.br.seventh_art.view.genres.movies.adapter.viewholder.MovieGenresViewHolder
 
 class MovieGenresAdapter(val movieGenres: List<MovieGenre>, val context: Context) :
