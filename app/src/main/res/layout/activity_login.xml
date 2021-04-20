@@ -36,11 +36,12 @@
         android:id="@+id/backdropcard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:foregroundGravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/backdropcard_login"
-        android:foregroundGravity="center"/>
+        app:srcCompat="@drawable/backdropcard_login" />
 
     <Button
         android:id="@+id/button_sign_in_login"
