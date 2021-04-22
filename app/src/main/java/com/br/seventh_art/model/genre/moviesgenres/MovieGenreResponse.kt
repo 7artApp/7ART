@@ -1,4 +1,4 @@
-package com.br.seventh_art.model.genreMovie
+package com.br.seventh_art.model.genre.moviesgenres
 
 
 import com.google.gson.annotations.SerializedName
