@@ -4,27 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
-
-    <ImageView
-        android:id="@+id/backdrop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/backdrop"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:background="@drawable/background_bw">
 
     <TextView
         android:id="@+id/sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/bebas_neue_regular"
         android:gravity="center"
         android:text="SIGN IN"
         android:textColor="@color/white"
         android:textSize="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/backdrop"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="@+id/button_back"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,8 +25,8 @@
         android:id="@+id/button_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/backdrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.041"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,11 +34,12 @@
         app:layout_constraintVertical_bias="0.352"
         app:srcCompat="@drawable/vector" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/username_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="488dp"
         android:ems="15"
         android:inputType="textPersonName"
         android:text="Username"
@@ -53,10 +47,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/backdrop"
         app:layout_constraintVertical_bias="0.027" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/password_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
