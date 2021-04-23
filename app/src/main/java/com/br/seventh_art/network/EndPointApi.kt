@@ -1,6 +1,5 @@
 package com.br.seventh_art.network
 
-import androidx.lifecycle.MutableLiveData
 import com.br.seventh_art.model.genre.moviesgenres.MovieGenreResponse
 import com.br.seventh_art.model.genre.seriesgenres.SerieGenreResponse
 import com.br.seventh_art.model.recommendation.moviesrecommendations.MoviesRecommendationsResponse
@@ -36,7 +35,7 @@ interface EndPointApi {
 
     @GET("movie/{movie_id}/recommendations")
     suspend fun getMoviesRecommendations(
-        @Path("movie_id") movieId: MutableLiveData<Int>,
+        @Path("movie_id") movieId: Int,
         @Query("api_key") apiKey: String
     ):MoviesRecommendationsResponse
 

@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.7ART">
+        <activity android:name=".view.recommendations.movies.activity.MoviesRecommendationsActivity" />
         <activity android:name=".view.UserProfileActivity" />
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.MovieReadMoreActivity" />
@@ -18,10 +19,10 @@
         <activity android:name=".view.SignUpActivity" />
         <activity android:name=".view.LoginActivity" />
         <activity android:name=".view.SplashActivity" />
-        <activity android:name=".view.genres.movies.activity.MoviesGenresActivity"/>
-            <activity android:name=".view.ProfileActivity" />
-        <activity android:name=".view.genres.series.activity.SeriesGenresActivity">
-        <intent-filter>
+        <activity android:name=".view.ProfileActivity" />
+        <activity android:name=".view.genres.series.activity.SeriesGenresActivity" />
+        <activity android:name=".view.genres.movies.activity.MoviesGenresActivity">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />

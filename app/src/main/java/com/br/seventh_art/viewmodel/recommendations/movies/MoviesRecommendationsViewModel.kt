@@ -11,17 +11,14 @@ import kotlinx.coroutines.launch
 
 class MoviesRecommendationsViewModel: ViewModel() {
 
-    val _listMutableMovieRec = MutableLiveData<List<Result>>()
+    var _listMutableMovieRec = MutableLiveData<List<Result>>()
     val listMutableMovieRec: LiveData<List<Result>> = _listMutableMovieRec
-
-    val _movieGenre = MutableLiveData<Int>()
-    val movieGenre: LiveData<Int> = _movieGenre
 
     private val repository = Repository()
 
-    fun getAllMovieGenre() = CoroutineScope(Dispatchers.IO)
+    fun getMoviesRecommendations(genre: Int) = CoroutineScope(Dispatchers.IO)
         .launch {
-            repository.getMovieRecommendationsService(_movieGenre)
+            repository.getMovieRecommendationsService(genre)
                 .let { movieRecommendationsResponse ->
                     _listMutableMovieRec
                         .postValue(movieRecommendationsResponse.results)
