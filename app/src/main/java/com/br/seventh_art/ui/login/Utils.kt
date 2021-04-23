@@ -1,11 +1,14 @@
 package com.br.seventh_art.ui.login
 
+import android.util.Patterns
+import android.widget.EditText
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 interface Utils {
 
-    fun validateEmail(layout: TextInputLayout):Boolean {
-        if (android.util.Patterns.EMAIL_ADDRESS.matcher(layout.editText?.text.toString()).matches()) {
+    fun validateEmail(layout: EditText):Boolean {
+        if (Patterns.EMAIL_ADDRESS.matcher(layout.editableText.toString()).matches()) {
             return true
         } else {
             layout.error = "E-mail Inválido"
@@ -13,8 +16,8 @@ interface Utils {
         }
     }
 
-    fun validatePassword(layout: TextInputLayout):Boolean{
-        if (layout.editText?.text.toString().isNotEmpty()){
+    fun validatePassword(layout: EditText):Boolean{
+        if (layout.editableText.toString().isNotEmpty()){
             return true
         } else {
             layout.error = "Senha Inválida"
@@ -22,8 +25,8 @@ interface Utils {
         }
     }
 
-    fun validateConfirmPassword(layoutPassword: TextInputLayout, layoutConfirmPassword: TextInputLayout): Boolean{
-        if (layoutPassword.editText?.text.toString() == layoutConfirmPassword.editText?.text.toString()){
+    fun validateConfirmPassword(layoutPassword: EditText, layoutConfirmPassword: EditText): Boolean{
+        if (layoutPassword.editableText.toString() == layoutConfirmPassword.editableText.toString()){
             return true
         } else {
             layoutConfirmPassword.error = "Senhas não correspondem"
@@ -31,8 +34,8 @@ interface Utils {
         }
     }
 
-    fun validateName(layout: TextInputLayout): Boolean{
-        if (layout.editText?.text.toString().isNotEmpty()){
+    fun validateName(layout: EditText): Boolean{
+        if (layout.editableText.toString().isNotEmpty()){
             return true
         }else{
             layout.error = "Nome não pode estar vazio"
