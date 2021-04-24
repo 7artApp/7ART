@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.br.seventh_art.R
+
 import com.br.seventh_art.model.genre.seriesgenres.SerieGenre
 import com.br.seventh_art.view.genres.series.adapter.viewholder.SerieGenresViewHolder
 

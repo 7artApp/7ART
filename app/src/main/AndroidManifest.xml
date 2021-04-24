@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.7ART">
+
         <activity android:name=".view.recommendations.movies.activity.MoviesRecommendationsActivity" />
         <activity android:name=".view.UserProfileActivity" />
         <activity android:name=".view.MainActivity" />
@@ -18,6 +19,7 @@
         <activity android:name=".view.SignInActivity" />
         <activity android:name=".view.SignUpActivity" />
         <activity android:name=".view.LoginActivity" />
+
         <activity android:name=".view.SplashActivity" />
         <activity android:name=".view.ProfileActivity" />
         <activity android:name=".view.genres.series.activity.SeriesGenresActivity" />
