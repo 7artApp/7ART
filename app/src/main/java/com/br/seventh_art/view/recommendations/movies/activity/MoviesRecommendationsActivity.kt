@@ -10,14 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.br.seventh_art.R
 import com.br.seventh_art.model.recommendation.moviesrecommendations.Result
 import com.br.seventh_art.view.recommendations.movies.adapter.MoviesRecAdapter
-import com.br.seventh_art.viewmodel.recommendations.movies.MoviesRecommendationsViewModel
 
 
 class MoviesRecommendationsActivity : AppCompatActivity() {
 
     //DECLARAÇÃO DA VIEWMODEL DE MOVIE RECOMMENDATIONS
     private val MoviesRecommendationsViewModel by lazy {
-        ViewModelProviders.of(this).get(MoviesRecommendationsViewModel::class.java)
+        ViewModelProviders.of(this).get(com.br.seventh_art.view.recommendations.movies.viewmodel.MoviesRecommendationsViewModel::class.java)
     }
 
     private val moviesRecList = mutableListOf<Result>()

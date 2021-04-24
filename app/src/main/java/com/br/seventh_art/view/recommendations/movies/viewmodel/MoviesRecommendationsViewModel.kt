@@ -1,4 +1,4 @@
-package com.br.seventh_art.viewmodel.recommendations.movies
+package com.br.seventh_art.view.recommendations.movies.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

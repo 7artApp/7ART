@@ -1,4 +1,4 @@
-package com.br.seventh_art.view
+package com.br.seventh_art.view.login.activities
 
 import android.content.Intent
 import android.os.Bundle

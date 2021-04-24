@@ -1,9 +1,7 @@
-package com.br.seventh_art.ui.login
+package com.br.seventh_art.view.login.helper
 
 import android.util.Patterns
 import android.widget.EditText
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 
 interface Utils {
 

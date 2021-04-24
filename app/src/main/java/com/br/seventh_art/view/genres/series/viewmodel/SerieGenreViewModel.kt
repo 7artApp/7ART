@@ -1,4 +1,4 @@
-package com.br.seventh_art.viewmodel.genres.series
+package com.br.seventh_art.view.genres.series.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

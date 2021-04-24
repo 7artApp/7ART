@@ -13,7 +13,7 @@ import com.br.seventh_art.R
 import com.br.seventh_art.model.genre.moviesgenres.MovieGenre
 import com.br.seventh_art.view.genres.movies.adapter.MovieGenresAdapter
 import com.br.seventh_art.view.genres.series.activity.SeriesGenresActivity
-import com.br.seventh_art.viewmodel.genres.movies.MovieGenreViewModel
+import com.br.seventh_art.view.genres.movies.viewmodel.MovieGenreViewModel
 
 class MoviesGenresActivity : AppCompatActivity() {
 
