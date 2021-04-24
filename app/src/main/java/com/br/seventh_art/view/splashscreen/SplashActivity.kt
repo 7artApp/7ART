@@ -1,34 +1,12 @@
-package com.br.seventh_art.view
+package com.br.seventh_art.view.splashscreen
 
-/*
-
-
-import androidx.appcompat.app.AppCompatActivity
-import android.content.Intent
-import android.os.Bundle
-import com.br.seventh_art.R
-
-
-class SplashActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
-        mostrarLogin()
-    }
-
-    private fun mostrarLogin() {
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
-}
- */
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.br.seventh_art.R
+import com.br.seventh_art.view.login.activities.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
 

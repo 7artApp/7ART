@@ -1,20 +1,19 @@
-package com.br.seventh_art.view
+package com.br.seventh_art.view.login.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.br.seventh_art.R
-import com.br.seventh_art.ui.login.Utils
+import com.br.seventh_art.view.login.helper.Utils
 import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
-import com.google.android.material.textfield.TextInputEditText
 
 //import com.br.seventh_art.view.genres.moviMoviesGenresActivity
 
-class SignUpActivity : AppCompatActivity(), Utils {
+class SignUpActivity : AppCompatActivity(),
+    Utils {
 
     private val username by lazy { findViewById<EditText>(R.id.username_sign_up) }
     private val emailSignUp by lazy { findViewById<EditText>(R.id.email_sign_up) }

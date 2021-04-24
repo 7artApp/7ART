@@ -1,4 +1,4 @@
-package com.br.seventh_art.view
+package com.br.seventh_art.view.profile
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
