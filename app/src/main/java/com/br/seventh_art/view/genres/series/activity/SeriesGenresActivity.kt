@@ -9,7 +9,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.br.seventh_art.R
-import com.br.seventh_art.model.serie.genreSerie.SerieGenre
+
+import com.br.seventh_art.model.genre.seriesgenres.SerieGenre
 import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
 import com.br.seventh_art.view.genres.series.adapter.SerieGenresAdapter
 import com.br.seventh_art.viewmodel.genres.series.SerieGenreViewModel
