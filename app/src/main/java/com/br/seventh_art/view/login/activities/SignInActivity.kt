@@ -1,4 +1,4 @@
-package com.br.seventh_art.view
+package com.br.seventh_art.view.login.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,14 +8,13 @@ import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.br.seventh_art.R
-import com.br.seventh_art.ui.login.Utils
+import com.br.seventh_art.view.login.helper.Utils
 import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 
 //import com.br.seventh_art.view.genres.MoviesGenresActivity
 
-class SignInActivity: AppCompatActivity(), Utils {
+class SignInActivity: AppCompatActivity(),
+    Utils {
 
     private val buttonLogin by lazy { findViewById<Button>(R.id.button_log_in) }
     private val emailSignIn by lazy { findViewById<EditText>(R.id.username_sign_in) }

@@ -18,7 +18,7 @@ class Repository{
 
     private val serviceApp = RetrofitInit(url).create(service)
 
-    suspend fun getConfigurationService(): Configuration = serviceApp.getConfig(API_KEY)
+//    suspend fun getConfigurationService(): Configuration = serviceApp.getConfig(API_KEY)
     suspend fun getMovieGenreService():MovieGenreResponse = serviceApp.getAllGenreMovie(API_KEY)
     suspend fun getSerieGenreService(): SerieGenreResponse = serviceApp.getAllGenreSerie(API_KEY)
 
