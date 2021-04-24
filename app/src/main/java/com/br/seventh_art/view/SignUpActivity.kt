@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.br.seventh_art.R
 import com.br.seventh_art.ui.login.Utils
@@ -20,7 +21,7 @@ class SignUpActivity : AppCompatActivity(), Utils {
     private val passwordSignUp by lazy { findViewById<EditText>(R.id.password_sign_up) }
     private val confirmPassword by lazy { findViewById<EditText>(R.id.confirm_password)}
     private val buttonLogIn by lazy { findViewById<Button>(R.id.button_sign_up)}
-    private val buttonBack by lazy {findViewById<ImageButton>(R.id.button_back_sign_up)}
+    private val buttonBack by lazy {findViewById<ImageView>(R.id.button_back_sign_up)}
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
