@@ -31,7 +31,6 @@ class MoviesGenresActivity : AppCompatActivity() {
     //DECLARAÇÃO DO TEXTVIEW QUE ENDEREÇA À TELA DE SÉRIES
     private val seriesButton by lazy { findViewById<TextView>(R.id.text_movie_genres_series) }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)

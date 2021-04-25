@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.br.seventh_art.R
-
 import com.br.seventh_art.model.genre.moviesgenres.MovieGenre
 import com.br.seventh_art.view.genres.movies.adapter.viewholder.MovieGenresViewHolder
 import com.br.seventh_art.view.recommendations.movies.activity.MoviesRecommendationsActivity

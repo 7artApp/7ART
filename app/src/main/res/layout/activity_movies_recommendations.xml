@@ -16,8 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:text="Filmes"
+            android:text="movies"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:fontFamily="@font/nunito_extra_light"
