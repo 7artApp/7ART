@@ -39,8 +39,6 @@ class SeriesGenresActivity : AppCompatActivity() {
         setRecyclerView()
         setViewModel()
         goToMovies()
-
-
     }
 
     private fun initView() = setContentView(R.layout.activity_genres_series)
@@ -58,7 +56,6 @@ class SeriesGenresActivity : AppCompatActivity() {
             it?.let { itChar ->
                 serieGenreList.addAll(itChar)
                 recyclerView.adapter?.notifyDataSetChanged()
-
             }
         })
     }
@@ -71,6 +68,5 @@ class SeriesGenresActivity : AppCompatActivity() {
             it.context.startActivity(intent)
         }
     }
-
 
 }

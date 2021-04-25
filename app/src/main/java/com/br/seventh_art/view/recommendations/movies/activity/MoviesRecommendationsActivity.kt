@@ -25,9 +25,7 @@ class MoviesRecommendationsActivity : AppCompatActivity() {
     private val recyclerView by lazy { findViewById<RecyclerView>(R.id.movies_recommendations_recycler_view) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-
         initView()
         setViewModel()
         setRecyclerView()

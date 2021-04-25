@@ -1,18 +1,16 @@
 package com.br.seventh_art.view.recommendations.movies.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.br.seventh_art.R
 import com.br.seventh_art.model.recommendation.moviesrecommendations.Result
 import com.br.seventh_art.view.recommendations.movies.adapter.viewholder.MoviesRecViewHolder
-import com.br.seventh_art.view.MovieReadMoreActivity
 import com.squareup.picasso.Picasso
 
 class MoviesRecAdapter(
-    val list: List<Result>,
+    val listMovie: List<Result>,
     val context: Context
 ) : RecyclerView.Adapter<MoviesRecViewHolder>() {
 
@@ -30,7 +28,7 @@ class MoviesRecAdapter(
         )
     }
 
-    override fun getItemCount() = list.size
+    override fun getItemCount() = listMovie.size
 
     override fun onBindViewHolder(holder: MoviesRecViewHolder, position: Int) {
 
@@ -39,19 +37,19 @@ class MoviesRecAdapter(
         val imageUrl = "https://image.tmdb.org/t/p/original"
 
         val title = holder.movie_title
-        title.text = list[position].title
+        title.text = listMovie[position].title
 
         val release = holder.movie_release
-        release.text = list[position].releaseDate
+        release.text = listMovie[position].releaseDate
 
         val score = holder.movie_score
-        score.text = list[position].voteAverage.toString() + " (IMDB)"
+        score.text = listMovie[position].voteAverage.toString() + " (IMDB)"
 
         val disclaimer = holder.movie_disclaimer
-        disclaimer.text = list[position].overview
+        disclaimer.text = listMovie[position].overview
 
         val image = holder.movie_image
-        Picasso.get().load(imageUrl + list[position].backdropPath).into(image)
+        Picasso.get().load(imageUrl + listMovie[position].backdropPath).into(image)
 
 //
 //        disclaimer.setOnClickListener{
