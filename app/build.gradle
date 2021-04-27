@@ -62,4 +62,11 @@ dependencies {
 
     //Biblioteca do Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //Dependências do Firebase
+    implementation platform('com.google.firebase:firebase-bom:26.7.0')
+    implementation 'com.google.firebase:firebase-auth'
+
+    //Dependência do play services
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
 }

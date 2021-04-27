@@ -2,6 +2,7 @@ package com.br.seventh_art.view.genres.series.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -58,6 +59,8 @@ class SeriesGenresActivity : AppCompatActivity() {
                 recyclerView.adapter?.notifyDataSetChanged()
             }
         })
+
+        serieGenreList.forEach { Log.d("LISTA DE GENEROS", "${it.name} | ${it.id}") }
     }
 
     private fun goToMovies(){
