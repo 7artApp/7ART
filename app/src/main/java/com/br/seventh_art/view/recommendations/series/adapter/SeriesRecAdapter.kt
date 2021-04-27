@@ -1,5 +1,6 @@
 package com.br.seventh_art.view.recommendations.series.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -29,14 +30,13 @@ class SeriesRecAdapter(
 
     override fun getItemCount() = listSerie.size
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: SeriesRecViewHolder, position: Int) {
 
-//        val imageUrl = "https://image.tmdb.org/t/p/w185"
-//        val imageUrl = "https://image.tmdb.org/t/p/w500"
         val imageUrl = "https://image.tmdb.org/t/p/original"
 
         val title = holder.serie_title
-        title.text = listSerie[position].originalName
+        title.text = listSerie[position].name
 
         val release = holder.serie_release
         release.text = listSerie[position].firstAirDate
