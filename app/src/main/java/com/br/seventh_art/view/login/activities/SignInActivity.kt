@@ -29,7 +29,7 @@ class SignInActivity: AppCompatActivity(),
 
     private fun initClick() {
         buttonLogin.setOnClickListener() {
-       //  if (validatePassword(passwordSignIn) && validateEmail(emailSignIn)) {
+            if (validatePassword(passwordSignIn) && validateName(emailSignIn)) {
                 val intent = Intent(this, MoviesGenresActivity::class.java)
                 startActivity(intent)
             }
@@ -39,3 +39,4 @@ class SignInActivity: AppCompatActivity(),
             }
         }
     }
+}
