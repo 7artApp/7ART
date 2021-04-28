@@ -92,7 +92,7 @@
         app:layout_constraintVertical_bias="0.2" />
 
     <ImageView
-        android:id="@+id/google_sign_up"
+        android:id="@+id/google_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -104,7 +104,7 @@
         app:srcCompat="@drawable/google_logo" />
 
     <ImageView
-        android:id="@+id/facebook_sign_up"
+        android:id="@+id/facebook_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

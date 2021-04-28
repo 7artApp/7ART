@@ -11,6 +11,7 @@
     <string name="login_failed">"Login failed"</string>
     <string name="prompt_name">Name</string>
     <string name="title_activity_movies_genres">MoviesGenresActivity</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -23,5 +24,6 @@
 <!--    facebook login-->
     <string name="facebook_app_id">1455419888129431</string>
     <string name="fb_login_protocol_scheme">fb1455419888129431</string>
+    <string name="default_web_client_id" />
 
 </resources>
