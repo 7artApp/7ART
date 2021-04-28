@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -25,7 +24,7 @@ class SignInActivity : AppCompatActivity(), Utils {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
-    private val googleButton by lazy {findViewById<ImageView>(R.id.google_sign_up)}
+    private val googleButton by lazy {findViewById<ImageView>(R.id.google_sign_in)}
     private val buttonLogin by lazy { findViewById<Button>(R.id.button_log_in) }
     private val emailSignIn by lazy { findViewById<EditText>(R.id.username_sign_in) }
     private val passwordSignIn by lazy { findViewById<EditText>(R.id.password_sign_in) }
