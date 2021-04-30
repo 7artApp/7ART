@@ -28,7 +28,6 @@ class SignInActivity : AppCompatActivity(), Utils {
     private val buttonLogin by lazy { findViewById<Button>(R.id.button_log_in) }
     private val emailSignIn by lazy { findViewById<EditText>(R.id.username_sign_in) }
     private val passwordSignIn by lazy { findViewById<EditText>(R.id.password_sign_in) }
-    private val buttonBack by lazy { findViewById<ImageView>(R.id.button_back) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -124,10 +123,6 @@ class SignInActivity : AppCompatActivity(), Utils {
             if (validatePassword(passwordSignIn) && validateName(emailSignIn)) {
                 val intent = Intent(this, MoviesGenresActivity::class.java)
                 startActivity(intent)
-            }
-
-            buttonBack.setOnClickListener {
-                onBackPressed()
             }
         }
     }
