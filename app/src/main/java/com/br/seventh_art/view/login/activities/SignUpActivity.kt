@@ -17,7 +17,7 @@ class SignUpActivity : AppCompatActivity(), Utils {
     private val emailSignUp by lazy { findViewById<EditText>(R.id.email_sign_up) }
     private val passwordSignUp by lazy { findViewById<EditText>(R.id.password_sign_up) }
     private val confirmPassword by lazy { findViewById<EditText>(R.id.confirm_password) }
-    private val buttonLogIn by lazy { findViewById<Button>(R.id.button_sign_up_login) }
+    private val buttonLogIn by lazy { findViewById<Button>(R.id.button_sign_up_log_in) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,13 +28,12 @@ class SignUpActivity : AppCompatActivity(), Utils {
 
     private fun initClick() {
         buttonLogIn.setOnClickListener {
-            if (validateName(username) && validateEmail(emailSignUp) && validatePassword(
-                    passwordSignUp
-                ) && validateConfirmPassword(passwordSignUp, confirmPassword)
-            ) {
+//            if (validateName(username) && validateEmail(emailSignUp) && validatePassword(
+//                    passwordSignUp
+//                ) && validateConfirmPassword(passwordSignUp, confirmPassword)
+//            ) {
                 val intent = Intent(this, MoviesGenresActivity::class.java)
                 startActivity(intent)
             }
         }
     }
-}
