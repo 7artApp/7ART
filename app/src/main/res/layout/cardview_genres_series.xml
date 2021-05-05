@@ -14,25 +14,22 @@
 
         <TextView
             android:id="@+id/textview_serie_genres"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:layout_margin="16dp"
             android:text="Serie Genre"
             android:textSize="32sp"
             android:fontFamily="@font/bebas_neue_regular"
-
             android:gravity="center"
-
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintVertical_bias="0.5"
             app:layout_constraintHorizontal_bias="0.5"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.cardview.widget.CardView>

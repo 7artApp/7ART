@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.LoginActivity"
-    android:background="@drawable/gradiente_background">
+    tools:context=".view.login.activities.LoginActivity"
+    android:background="@drawable/background_login">
 
     <ImageView
         android:id="@+id/cameraLogo"
@@ -17,64 +17,50 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/camera_logologo_7art"
-        android:foregroundGravity="center"/>
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/camera_logologo_7art" />
 
     <ImageView
         android:id="@+id/art"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="320dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/artlogo_7art"
-        android:foregroundGravity="center"/>
-
-    <ImageView
-        android:id="@+id/backdropcard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:foregroundGravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/backdropcard_login" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/artlogo_7art" />
 
     <Button
         android:id="@+id/button_sign_in_login"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/bebas_neue_regular"
         android:gravity="center"
         android:text="SIGN IN"
         android:textColor="@color/white"
         android:textSize="35dp"
-        android:fontFamily="@font/bebas_neue_regular"
         app:layout_constraintBottom_toTopOf="@+id/button_sign_up_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/backdropcard"
-        app:layout_constraintVertical_bias="0.7"
-        style="?android:attr/borderlessButtonStyle"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.965" />
 
     <Button
         android:id="@+id/button_sign_up_login"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/bebas_neue_regular"
         android:gravity="center"
         android:text="SIGN UP"
         android:textColor="@color/white"
         android:textSize="35dp"
-        android:fontFamily="@font/bebas_neue_regular"
-        app:layout_constraintBottom_toBottomOf="@+id/backdropcard"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/backdropcard"
-        app:layout_constraintTop_toTopOf="@+id/backdropcard"
-        app:layout_constraintVertical_bias="0.7"
-        style="?android:attr/borderlessButtonStyle"/>
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

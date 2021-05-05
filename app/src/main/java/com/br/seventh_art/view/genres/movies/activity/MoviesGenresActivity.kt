@@ -9,10 +9,11 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.br.seventh_art.R
-import com.br.seventh_art.model.movie.genreMovie.MovieGenre
+
+import com.br.seventh_art.model.genre.moviesgenres.MovieGenre
 import com.br.seventh_art.view.genres.movies.adapter.MovieGenresAdapter
 import com.br.seventh_art.view.genres.series.activity.SeriesGenresActivity
-import com.br.seventh_art.viewmodel.genres.movies.MovieGenreViewModel
+import com.br.seventh_art.view.genres.movies.viewmodel.MovieGenreViewModel
 
 class MoviesGenresActivity : AppCompatActivity() {
 
@@ -29,7 +30,6 @@ class MoviesGenresActivity : AppCompatActivity() {
 
     //DECLARAÇÃO DO TEXTVIEW QUE ENDEREÇA À TELA DE SÉRIES
     private val seriesButton by lazy { findViewById<TextView>(R.id.text_movie_genres_series) }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

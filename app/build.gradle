@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -56,6 +57,19 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.2.2'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
 
+    implementation platform('com.google.firebase:firebase-bom:27.1.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
     //Biblioteca do Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //Dependências do Facebook
+    implementation 'com.facebook.android:facebook-login:8.2.0'
+
+    //Dependências do Firebase
+    implementation platform('com.google.firebase:firebase-bom:26.7.0')
+    implementation 'com.google.firebase:firebase-auth'
+
+    //Dependência do play services
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
 }
