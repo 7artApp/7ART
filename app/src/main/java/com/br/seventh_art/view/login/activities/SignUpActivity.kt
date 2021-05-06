@@ -28,12 +28,13 @@ class SignUpActivity : AppCompatActivity(), Utils {
 
     private fun initClick() {
         buttonLogIn.setOnClickListener {
-//            if (validateName(username) && validateEmail(emailSignUp) && validatePassword(
-//                    passwordSignUp
-//                ) && validateConfirmPassword(passwordSignUp, confirmPassword)
-//            ) {
+            if (validateName(username) && validateEmail(emailSignUp) && validatePassword(
+                    passwordSignUp
+                ) && validateConfirmPassword(passwordSignUp, confirmPassword)
+            ) {
                 val intent = Intent(this, MoviesGenresActivity::class.java)
                 startActivity(intent)
             }
         }
     }
+}
