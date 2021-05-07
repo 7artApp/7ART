@@ -2,6 +2,8 @@ package com.br.seventh_art.view.genres.movies.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -14,6 +16,7 @@ import com.br.seventh_art.model.genre.moviesgenres.MovieGenre
 import com.br.seventh_art.view.genres.movies.adapter.MovieGenresAdapter
 import com.br.seventh_art.view.genres.series.activity.SeriesGenresActivity
 import com.br.seventh_art.view.genres.movies.viewmodel.MovieGenreViewModel
+import com.br.seventh_art.view.profile.ProfileActivity
 
 class MoviesGenresActivity : AppCompatActivity() {
 
@@ -31,6 +34,8 @@ class MoviesGenresActivity : AppCompatActivity() {
     //DECLARAÇÃO DO TEXTVIEW QUE ENDEREÇA À TELA DE SÉRIES
     private val seriesButton by lazy { findViewById<TextView>(R.id.text_movie_genres_series) }
 
+    private val buttonProfileMovie by lazy {findViewById<ImageView>(R.id.button_profile_movie)}
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -39,8 +44,6 @@ class MoviesGenresActivity : AppCompatActivity() {
         setRecyclerView()
         setViewModel()
         goToSeries()
-
-
     }
 
     private fun initView() = setContentView(R.layout.activity_genres_movies)
@@ -62,13 +65,20 @@ class MoviesGenresActivity : AppCompatActivity() {
         })
     }
 
-    private fun goToSeries(){
+    private fun goToSeries() {
 
-        seriesButton.setOnClickListener{
+        seriesButton.setOnClickListener {
 
             val intent = Intent(this, SeriesGenresActivity::class.java)
             it.context.startActivity(intent)
         }
     }
 
+    fun goToProfile(view: View){
+        buttonProfileMovie.setOnClickListener {
+
+            val intent = Intent(this, ProfileActivity::class.java)
+            it.context.startActivity(intent)
+        }
+    }
 }

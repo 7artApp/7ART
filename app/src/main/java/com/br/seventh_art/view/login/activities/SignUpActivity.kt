@@ -2,6 +2,7 @@ package com.br.seventh_art.view.login.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -36,5 +37,9 @@ class SignUpActivity : AppCompatActivity(), Utils {
                 startActivity(intent)
             }
         }
+    }
+
+    fun back(view: View){
+        onBackPressed()
     }
 }
