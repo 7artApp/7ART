@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -25,12 +24,96 @@
 
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
         android:id="@+id/movies_recommendations_recycler_view"
         android:layout_marginBottom="16dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/movie_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/bebas_neue_regular"
+        android:gravity="center"
+        android:text="Avengers: Endgame"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="36sp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
 
+        <ImageView
+            android:id="@+id/star_icon"
+            android:layout_width="18dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/star_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.65"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/movie_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8.5 (IMDB)"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:padding="8dp"
+            android:fontFamily="@font/nunito_semibold"
+            app:layout_constraintStart_toEndOf="@id/star_icon"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/calendar_icon"
+            android:layout_width="18dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/calendar"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/movie_release"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_semibold"
+            android:padding="8dp"
+            android:text="2019"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/calendar_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/sinopse_abreviada"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+
+        android:text="Sinopse"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:fontFamily="@font/nunito_semibold"/>
+
+    <TextView
+        android:id="@+id/movie_disclaimer"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:fontFamily="@font/nunito_semibold"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:justificationMode="inter_word"/>
 
 </LinearLayout>

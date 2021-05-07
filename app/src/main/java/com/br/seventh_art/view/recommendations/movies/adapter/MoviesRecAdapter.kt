@@ -36,17 +36,17 @@ class MoviesRecAdapter(
 //        val imageUrl = "https://image.tmdb.org/t/p/w500"
         val imageUrl = "https://image.tmdb.org/t/p/original"
 
-        val title = holder.movie_title
-        title.text = listMovie[position].title
-
-        val release = holder.movie_release
-        release.text = listMovie[position].releaseDate
-
-        val score = holder.movie_score
-        score.text = listMovie[position].voteAverage.toString() + " (IMDB)"
-
-        val disclaimer = holder.movie_disclaimer
-        disclaimer.text = listMovie[position].overview
+//        val title = holder.movie_title
+//        title.text = listMovie[position].title
+//
+//        val release = holder.movie_release
+//        release.text = listMovie[position].releaseDate
+//
+//        val score = holder.movie_score
+//        score.text = listMovie[position].voteAverage.toString() + " (IMDB)"
+//
+//        val disclaimer = holder.movie_disclaimer
+//        disclaimer.text = listMovie[position].overview
 
         val image = holder.movie_image
         Picasso.get().load(imageUrl + listMovie[position].backdropPath).into(image)

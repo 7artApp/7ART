@@ -15,7 +15,7 @@ import com.br.seventh_art.view.genres.movies.adapter.MovieGenresAdapter
 import com.br.seventh_art.view.genres.series.activity.SeriesGenresActivity
 import com.br.seventh_art.view.genres.movies.viewmodel.MovieGenreViewModel
 
-class MoviesGenresActivity : AppCompatActivity() {
+class   MoviesGenresActivity : AppCompatActivity() {
 
     //DECLARAÇÃO DA LISTA QUE RECEBE OS DADOS DA VIEWMODEL DE MOVIE GENRE E É PARÂMETRO DO ADAPTER
     var movieGenreList = mutableListOf<MovieGenre>()
