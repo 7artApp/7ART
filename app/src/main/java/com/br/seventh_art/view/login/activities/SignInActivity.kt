@@ -18,7 +18,6 @@ import com.facebook.FacebookCallback
 import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
-import com.facebook.login.widget.LoginButton
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -62,14 +61,6 @@ class SignInActivity : AppCompatActivity(), Utils {
         super.onStart()
 
         val currentUser = firebaseAuth.currentUser
-        setUserName(currentUser?.email?: "Usuário desconhecido")
-    }
-
-    private fun setUserName(name: String?) {
-        Toast.makeText(
-            baseContext, "Welcome, $name",
-            Toast.LENGTH_SHORT
-        ).show()
     }
 
     private fun initView() = setContentView(R.layout.activity_sign_in)
@@ -95,7 +86,7 @@ class SignInActivity : AppCompatActivity(), Utils {
             FacebookCallback<LoginResult> {
             override fun onSuccess(loginResult: LoginResult) {
                 Log.d("facebook", "facebook:onSuccess:$loginResult")
-                handleFacebookAccessToken(loginResult.accessToken)
+                firebaseAuthWithFacebook(loginResult.accessToken)
             }
 
             override fun onCancel() {
@@ -106,12 +97,10 @@ class SignInActivity : AppCompatActivity(), Utils {
                 Log.d("facebook", "facebook:onError", error)
             }
         })
-
     }
 
-    private fun handleFacebookAccessToken(token: AccessToken) {
+    private fun firebaseAuthWithFacebook(token: AccessToken) {
         Log.d("facebook", "handleFacebookAccessToken:$token")
-
         val credential = FacebookAuthProvider.getCredential(token.token)
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
@@ -119,7 +108,8 @@ class SignInActivity : AppCompatActivity(), Utils {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("facebook", "signInWithCredential:success")
                     val name = firebaseAuth.currentUser?.displayName
-                    setUserName(name)
+                    val intent = Intent (this, MoviesGenresActivity::class.java)
+                    startActivity(intent)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("facebook", "signInWithCredential:failure", task.exception)
@@ -127,7 +117,6 @@ class SignInActivity : AppCompatActivity(), Utils {
                         baseContext, "Authentication failed.",
                         Toast.LENGTH_SHORT
                     ).show()
-                    setUserName("Usuário desconectado")
                 }
             }
     }
@@ -141,6 +130,7 @@ class SignInActivity : AppCompatActivity(), Utils {
         facebookSignIn()
         tryLoginFacebook = true
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
@@ -151,12 +141,10 @@ class SignInActivity : AppCompatActivity(), Utils {
                 val account = task.getResult(ApiException::class.java)!!
                 Log.d("GoogleSign", "firebaseAuthWithGoogle:" + account.idToken)
                 firebaseAuthWithGoogle(account.idToken!!)
-                goToMovies()
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
                 Log.w("GoogleSign", "Google sign in failed", e)
             }catch (e: Exception) {
-                setUserName("Erro ao efetuar login")
             }
         }
         if (tryLoginFacebook) {
@@ -172,11 +160,10 @@ class SignInActivity : AppCompatActivity(), Utils {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("GoogleSign", "signInWithCredential:success")
                     val user = firebaseAuth.currentUser
-                    setUserName(user?.email ?: "Usuário desconectado")
+                    goToMovies()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("GoogleSign", "signInWithCredential:failure", task.exception)
-                    setUserName("Erro ao efetuar login")
                 }
             }
     }
