@@ -38,7 +38,7 @@
         android:layout_marginBottom="4dp"
         android:fontFamily="@font/bebas_neue_regular"
         android:gravity="center"
-        android:text="Avengers: Endgame"
+        android:text="Título"
         android:textAllCaps="true"
         android:textColor="@color/black"
         android:textSize="36sp" />
@@ -62,7 +62,7 @@
             android:id="@+id/movie_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="8.5 (IMDB)"
+            android:text="Nota (IMDB)"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:padding="8dp"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/nunito_semibold"
             android:padding="8dp"
-            android:text="2019"
+            android:text="Ano"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/calendar_icon"
@@ -98,8 +98,8 @@
         android:id="@+id/sinopse_abreviada"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="6dp"
-
+        android:paddingLeft="10dp"
+        android:paddingVertical="6dp"
         android:text="Sinopse"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -110,7 +110,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:padding="10dp"
         android:fontFamily="@font/nunito_semibold"
         android:textColor="@color/black"
         android:textSize="18sp"
