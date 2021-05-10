@@ -1,6 +1,7 @@
 package com.br.seventh_art.view.login.activities
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,8 +11,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.br.seventh_art.R
-import com.br.seventh_art.view.login.helper.Utils
 import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
+import com.br.seventh_art.view.login.helper.Utils
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -25,7 +26,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import java.lang.Exception
+
 
 class SignInActivity : AppCompatActivity(), Utils {
 
@@ -108,8 +109,7 @@ class SignInActivity : AppCompatActivity(), Utils {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("facebook", "signInWithCredential:success")
                     val name = firebaseAuth.currentUser?.displayName
-                    val intent = Intent (this, MoviesGenresActivity::class.java)
-                    startActivity(intent)
+                    goToMovies()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("facebook", "signInWithCredential:failure", task.exception)

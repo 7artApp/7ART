@@ -16,14 +16,10 @@ class ProfileActivity : AppCompatActivity() {
     private val passwordProfile by lazy { findViewById<Button>(R.id.password_profile) }
     private val buttonLogOut by lazy { findViewById<Button>(R.id.button_log_out) }
     private val buttonSave by lazy { findViewById<Button>(R.id.button_save) }
-    private val buttonBack by lazy { findViewById<Button>(R.id.button_back_profile) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
     }
 
-    fun back(view: View) {
-        onBackPressed()
-    }
 }
