@@ -46,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:ems="15"
+        android:ems="18"
         android:inputType="textPersonName"
         android:text="@string/username"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:ems="15"
+        android:ems="18"
         android:inputType="textEmailAddress"
         android:text="@string/email"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:ems="15"
+        android:ems="18"
         android:inputType="textPassword"
         android:text="@string/password"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:ems="15"
+        android:ems="18"
         android:inputType="textPassword"
         android:text="@string/password"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,14 +102,13 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="LOG IN"
-        android:textSize="25dp"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirm_password"
-        app:layout_constraintVertical_bias="0.2" />
-
+        app:layout_constraintVertical_bias="0.327" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
