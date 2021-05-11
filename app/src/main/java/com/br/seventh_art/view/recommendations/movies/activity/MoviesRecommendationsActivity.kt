@@ -71,7 +71,6 @@ class   MoviesRecommendationsActivity : AppCompatActivity() {
 
 
     private fun setRecyclerView(){
-
         recyclerView.adapter = MoviesRecAdapter(moviesRecList, this)
         recyclerView.set3DItem(false)
         recyclerView.setAlpha(true)
@@ -80,7 +79,8 @@ class   MoviesRecommendationsActivity : AppCompatActivity() {
     }
 
     private fun setViewData(){
-        recyclerView.setItemSelectListener(object : CarouselLayoutManager.OnSelected {
+
+       recyclerView.setItemSelectListener(object : CarouselLayoutManager.OnSelected {
             override fun onItemSelected(position: Int) {
                 movie_title.text = moviesRecList[position].title
                 movie_release.text = moviesRecList[position].releaseDate
