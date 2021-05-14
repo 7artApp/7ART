@@ -33,6 +33,11 @@ class   MoviesRecommendationsActivity : AppCompatActivity() {
     private val movie_score by lazy { findViewById<TextView>(R.id.movie_score) }
     private val movie_disclaimer by lazy { findViewById<TextView>(R.id.movie_disclaimer) }
 
+    override fun onStart() {
+        super.onStart()
+        setViewModel()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -76,7 +81,6 @@ class   MoviesRecommendationsActivity : AppCompatActivity() {
         recyclerView.set3DItem(false)
         recyclerView.setAlpha(true)
         recyclerView.setInfinite(false)
-
     }
 
     private fun setViewData(){
