@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.splashscreen.SplashActivity"
     android:background="@drawable/gradiente_background"
-    style="@style/Theme.7ART">
+    android:theme="@style/Theme.7ART.NoActionBar">
 
 
     <ImageView

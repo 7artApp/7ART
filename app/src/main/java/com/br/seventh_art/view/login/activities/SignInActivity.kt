@@ -23,9 +23,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.ktx.Firebase
 
 
 class SignInActivity : AppCompatActivity(), Utils {
@@ -33,6 +35,7 @@ class SignInActivity : AppCompatActivity(), Utils {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
+    private val firebaseAnalytics = Firebase.analytics
 
     private lateinit var callbackManager: CallbackManager
     private var tryLoginFacebook = false
@@ -166,6 +169,32 @@ class SignInActivity : AppCompatActivity(), Utils {
                     Log.w("GoogleSign", "signInWithCredential:failure", task.exception)
                 }
             }
+    }
+
+    fun signin(view: View) {
+        if (firebaseAuth.currentUser != null) {
+            val bundle = Bundle().apply {
+                putString("email", firebaseAuth.currentUser!!.email)
+            }
+            firebaseAnalytics.logEvent("login", bundle)
+            startActivity(Intent(this, MoviesGenresActivity::class.java))
+        } else {
+            val email = emailSignIn.text.toString()
+            val pass = passwordSignIn.text.toString()
+
+            firebaseAuthWithEmailPass(email, pass)
+        }
+    }
+
+    private fun firebaseAuthWithEmailPass(email: String, pass: String) {
+        firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val user = firebaseAuth.currentUser
+                startActivity(Intent(this, MoviesGenresActivity::class.java))
+            } else {
+              //  setUserEmail(task.exception?.message!!)
+            }
+        }
     }
 
     private fun goToMovies(){

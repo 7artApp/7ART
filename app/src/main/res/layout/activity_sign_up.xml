@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.7ART.NoActionBar"
     android:background="@drawable/background_bw">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -103,6 +104,7 @@
         android:gravity="center"
         android:text="LOG IN"
         android:textSize="30dp"
+        android:onClick="createUser"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

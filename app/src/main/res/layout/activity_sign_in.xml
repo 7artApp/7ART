@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.7ART.NoActionBar"
     android:background="@drawable/background_bw">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -80,6 +81,7 @@
         android:gravity="center"
         android:text="LOG IN"
         android:textSize="30dp"
+        android:onClick="signin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
