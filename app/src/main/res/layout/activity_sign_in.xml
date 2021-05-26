@@ -50,7 +50,7 @@
         android:ems="18"
         android:inputType="textPersonName"
 
-        android:text="@string/username"
+        tools:text="@string/username"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -65,7 +65,7 @@
         android:layout_marginTop="20dp"
         android:ems="18"
         android:inputType="textPassword"
-        android:text="@string/password"
+        tools:text="@string/password"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +81,6 @@
         android:gravity="center"
         android:text="LOG IN"
         android:textSize="30dp"
-        android:onClick="signin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

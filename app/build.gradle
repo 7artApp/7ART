@@ -68,7 +68,7 @@ dependencies {
 
     //Dependências do Firebase
     implementation platform('com.google.firebase:firebase-bom:26.7.0')
-    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-auth-ktx'
 
     //Dependência do play services
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
