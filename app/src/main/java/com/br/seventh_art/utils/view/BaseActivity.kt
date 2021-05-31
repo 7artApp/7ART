@@ -1,6 +1,5 @@
 package com.br.seventh_art.utils.view
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -50,19 +49,19 @@ open class BaseActivity : AppCompatActivity() {
         createUserWithEmailPass(email, pass)
     }
 
-    open fun signin(context: Context, email: EditText, psword: EditText) {
+    open fun signin(view:View, email: EditText, psword: EditText) {
         if (firebaseInstance.currentUser != null) {
             val bundle = Bundle().apply {
                 putString("email", firebaseInstance.currentUser!!.email)
             }
             firebaseAnalytics.logEvent("login", bundle)
-            startActivity(Intent(this, context::class.java))
+            startActivity(Intent(this, view::class.java))
 //            startActivity(Intent(this, context::class.java))
         } else {
             val email = email.text.toString()
             val pass = psword.text.toString()
 
-            firebaseAuthWithEmailPass(email, pass, context)
+            firebaseAuthWithEmailPass(email, pass, view)
         }
     }
 
@@ -77,7 +76,7 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
-    fun firebaseAuthWithEmailPass(email: String, pass: String, context: Context) {
+    fun firebaseAuthWithEmailPass(email: String, pass: String, context: View) {
         firebaseInstance.signInWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val user = firebaseInstance.currentUser
