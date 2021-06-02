@@ -1,7 +1,10 @@
 package com.br.seventh_art.view.login.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -10,6 +13,8 @@ import com.br.seventh_art.R
 import com.br.seventh_art.databinding.ActivitySignUpBinding
 import com.br.seventh_art.utils.view.BaseActivity
 import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
+import com.br.seventh_art.view.login.viewmodel.LoginViewModel
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
@@ -17,12 +22,17 @@ import com.google.firebase.ktx.Firebase
 
 class SignUpActivity : AppCompatActivity() {
 
+    lateinit var loginViewModel: LoginViewModel
     lateinit var binding: ActivitySignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    val button by lazy {findViewById<MaterialButton>(R.id.button_sign_up) }
 
-    private val signUpButton by lazy { findViewById<Button>(R.id.button_sign_up_log_in) }
-    private val emailSignUp by lazy { findViewById<EditText>(R.id.email_sign_up) }
-    private val passwordSignUp by lazy { findViewById<EditText>(R.id.password_sign_up) }
+    override fun onStart() {
+        super.onStart()
+        val currentUser = firebaseAuth.currentUser
+        //VERIFICA SE EXISTE UM CURRENT USER (SPLASH SCREEN)
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,12 +41,12 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(view)
 
         firebaseAuth = FirebaseAuth.getInstance()
-    }
 
-    override fun onStart() {
-        super.onStart()
-        val currentUser = firebaseAuth.currentUser
-        setUserEmail(currentUser?.email ?: R.string.disconnected_user.toString())
+        binding.apply {
+            buttonSignUp.setOnClickListener {
+                createUser(this.root)
+            }
+        }
     }
 
     fun createUser(view: View) {
@@ -56,9 +66,9 @@ class SignUpActivity : AppCompatActivity() {
         firebaseAuth.createUserWithEmailAndPassword(email, psword).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val user = firebaseAuth.currentUser
-                setUserEmail(user?.email ?: R.string.disconnected_user.toString())
+                Log.v("LOGIN", user?.email ?: "Usuário desconectado")
             } else {
-                setUserEmail(task.exception?.message!!)
+                Log.v("LOGIN", task.exception?.message!!)
             }
         }
     }
@@ -67,22 +77,16 @@ class SignUpActivity : AppCompatActivity() {
         firebaseAuth.signInWithEmailAndPassword(email, psword).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val user = firebaseAuth.currentUser
-                setUserEmail(user?.email ?: R.string.disconnected_user.toString())
+                Log.v("LOGIN", user?.email ?: "Usuário desconectado")
             } else {
-                setUserEmail(task.exception?.message!!)
+                Log.v("LOGIN", task.exception?.message!!)
             }
-        }
-    }
-
-    private fun setUserEmail(email: String) {
-        binding.emailSignUp.apply {
-            text = email
         }
     }
 
     fun signOut(view: View) {
         firebaseAuth.signOut()
-        setUserEmail(R.string.disconnected_user.toString())
+        Log.v("LOGIN", "Usuário desconectado")
     }
 }
 

@@ -16,7 +16,7 @@
         <activity android:name=".view.recommendations.movies.activity.MoviesRecommendationsActivity"/>
         <activity android:name=".view.recommendations.series.activity.SeriesRecommendationsActivity"/>
         <activity android:name=".view.MovieReadMoreActivity" />
-        <activity android:name=".view.login.activities.SignInActivity" />
+        <activity android:name=".view.login.activities.SignInActivity"/>
         <activity android:name=".view.login.activities.SignUpActivity" />
         <activity android:name=".view.login.activities.LoginActivity" />
         <activity android:name=".view.profile.ProfileActivity" />
