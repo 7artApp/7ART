@@ -8,8 +8,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.br.seventh_art.R
-import com.br.seventh_art.utils.view.BaseActivity
 import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
@@ -21,18 +21,20 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.ktx.Firebase
 
 
-//class SignInActivity : AppCompatActivity() {
-class SignInActivity : BaseActivity() {
+class SignInActivity : AppCompatActivity() {
+//class SignInActivity : BaseActivity() {
 
-    //    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
-//    private val firebaseAnalytics = Firebase.analytics
+    private val firebaseAnalytics = Firebase.analytics
 
     private lateinit var callbackManager: CallbackManager
     private var tryLoginFacebook = false
@@ -43,13 +45,10 @@ class SignInActivity : BaseActivity() {
     private val passwordSignIn by lazy { findViewById<EditText>(R.id.password_sign_in) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        firebaseInstance = FirebaseAuth.getInstance()
-        callbackManager = CallbackManager.Factory.create()
-
         super.onCreate(savedInstanceState)
-
         initView()
+        firebaseAuth = FirebaseAuth.getInstance()
+        callbackManager = CallbackManager.Factory.create()
 
         googleSignIn()
 
@@ -69,7 +68,7 @@ class SignInActivity : BaseActivity() {
 
     private fun googleSignIn() {
 
-        firebaseInstance = FirebaseAuth.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
 
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -104,12 +103,12 @@ class SignInActivity : BaseActivity() {
     private fun firebaseAuthWithFacebook(token: AccessToken) {
         Log.d("facebook", "handleFacebookAccessToken:$token")
         val credential = FacebookAuthProvider.getCredential(token.token)
-        firebaseInstance.signInWithCredential(credential)
+        firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("facebook", "signInWithCredential:success")
-                    val name = firebaseInstance.currentUser?.displayName
+                    val name = firebaseAuth.currentUser?.displayName
                     goToMovies()
                 } else {
                     // If sign in fails, display a message to the user.
@@ -155,12 +154,12 @@ class SignInActivity : BaseActivity() {
 
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
-        firebaseInstance.signInWithCredential(credential)
+        firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("GoogleSign", "signInWithCredential:success")
-                    val user = firebaseInstance.currentUser
+                    val user = firebaseAuth.currentUser
                     goToMovies()
                 } else {
                     // If sign in fails, display a message to the user.
@@ -186,9 +185,9 @@ class SignInActivity : BaseActivity() {
 //    }
 
     private fun firebaseAuthWithEmailPass(email: String, pass: String) {
-        firebaseInstance.signInWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
+        firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val user = firebaseInstance.currentUser
+                val user = firebaseAuth.currentUser
                 startActivity(Intent(this, MoviesGenresActivity::class.java))
             } else {
                 //  setUserEmail(task.exception?.message!!)
@@ -201,8 +200,8 @@ class SignInActivity : BaseActivity() {
         startActivity(intent)
     }
 
-    fun signInButton()= buttonLogin.setOnClickListener{
+    fun signInButton() = buttonLogin.setOnClickListener {
 
-        signin(MoviesGenresActivity, emailSignIn, passwordSignIn)
+//        signin(MoviesGenresActivity::class, emailSignIn, passwordSignIn)
     }
 }

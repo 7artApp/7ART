@@ -32,34 +32,10 @@ class MoviesRecAdapter(
 
     override fun onBindViewHolder(holder: MoviesRecViewHolder, position: Int) {
 
-//        val imageUrl = "https://image.tmdb.org/t/p/w185"
-//        val imageUrl = "https://image.tmdb.org/t/p/w500"
         val imageUrl = "https://image.tmdb.org/t/p/original"
-
-//        val title = holder.movie_title
-//        title.text = listMovie[position].title
-//
-//        val release = holder.movie_release
-//        release.text = listMovie[position].releaseDate
-//
-//        val score = holder.movie_score
-//        score.text = listMovie[position].voteAverage.toString() + " (IMDB)"
-//
-//        val disclaimer = holder.movie_disclaimer
-//        disclaimer.text = listMovie[position].overview
 
         val image = holder.movie_image
         Picasso.get().load(imageUrl + listMovie[position].backdropPath).into(image)
-
-//
-//        disclaimer.setOnClickListener{
-//
-//            val intent = Intent(it.context, MovieReadMoreActivity::class.java)
-//            intent.putExtra("IMAGE", list[position].image)
-//            intent.putExtra("DISCLAIMER", text)
-//            it.context.startActivity(intent)
-//        }
-
     }
 
-    }
+}

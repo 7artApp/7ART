@@ -35,29 +35,8 @@ class SeriesRecAdapter(
 
         val imageUrl = "https://image.tmdb.org/t/p/original"
 
-//        val title = holder.serie_title
-//        title.text = listSerie[position].name
-//
-//        val release = holder.serie_release
-//        release.text = listSerie[position].firstAirDate
-//
-//        val score = holder.serie_score
-//        score.text = listSerie[position].voteAverage.toString() + " (IMDB)"
-//
-//        val disclaimer = holder.serie_disclaimer
-//        disclaimer.text = listSerie[position].overview
-
         val image = holder.serie_image
         Picasso.get().load(imageUrl + listSerie[position].backdropPath).into(image)
-
-//
-//        disclaimer.setOnClickListener{
-//
-//            val intent = Intent(it.context, SerieReadMoreActivity::class.java)
-//            intent.putExtra("IMAGE", list[position].image)
-//            intent.putExtra("DISCLAIMER", text)
-//            it.context.startActivity(intent)
-//        }
 
     }
 }

@@ -65,6 +65,10 @@ class SeriesRecommendationsActivity : AppCompatActivity() {
                 seriesRecList.addAll(itChar)
                 recyclerView.adapter?.notifyDataSetChanged()
             }
+            serie_title.text = seriesRecList[0].name
+            serie_release.text = seriesRecList[0].firstAirDate
+            serie_score.text = seriesRecList[0].voteAverage.toString() + " (IMDB)"
+            serie_disclaimer.text = seriesRecList[0].overview
         })
     }
 
