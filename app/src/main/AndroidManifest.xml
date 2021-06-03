@@ -22,7 +22,7 @@
         <activity android:name=".view.profile.ProfileActivity" />
         <activity android:name=".view.genres.series.activity.SeriesGenresActivity" />
         <activity android:name=".view.genres.movies.activity.MoviesGenresActivity"/>
-        <activity android:name=".view.splashscreen.SplashActivity">
+        <activity android:name=".view.login.activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

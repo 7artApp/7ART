@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.splashscreen.SplashActivity"
+    tools:context=".view.login.activities.SplashActivity"
     android:background="@drawable/gradiente_background"
     android:theme="@style/Theme.7ART.NoActionBar">
 

@@ -1,4 +1,4 @@
-package com.br.seventh_art.view.splashscreen
+package com.br.seventh_art.view.login.activities
 
 
 import android.content.Intent
@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.os.Handler
 import com.br.seventh_art.R
 import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
-import com.br.seventh_art.view.login.activities.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class SplashActivity : AppCompatActivity() {

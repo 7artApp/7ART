@@ -10,6 +10,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.br.seventh_art.R
+import com.br.seventh_art.databinding.ActivitySignInBinding
+import com.br.seventh_art.databinding.ActivitySignUpBinding
 import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
@@ -30,11 +32,10 @@ import com.google.firebase.ktx.Firebase
 
 class SignInActivity : AppCompatActivity() {
 
+    lateinit var binding:ActivitySignInBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
-
     private val firebaseAnalytics = Firebase.analytics
-
     private lateinit var callbackManager: CallbackManager
     private var tryLoginFacebook = false
     private val loginManager = LoginManager.getInstance()
@@ -43,22 +44,23 @@ class SignInActivity : AppCompatActivity() {
     private val emailSignIn by lazy { findViewById<EditText>(R.id.username_sign_in) }
     private val passwordSignIn by lazy { findViewById<EditText>(R.id.password_sign_in) }
 
+    override fun onStart() {
+        super.onStart()
+        firebaseAuth = FirebaseAuth.getInstance()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivitySignInBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        initView()
-
-        firebaseAuth = FirebaseAuth.getInstance()
-
+//        firebaseAuth = FirebaseAuth.getInstance()
         callbackManager = CallbackManager.Factory.create()
-
         googleSignIn()
-
         signInButton()
 
     }
-
-    private fun initView() = setContentView(R.layout.activity_sign_in)
 
     private fun googleSignIn() {
 

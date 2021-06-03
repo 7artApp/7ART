@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/black"
-        android:onClick="back"
         android:paddingVertical="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +56,8 @@
             android:layout_marginTop="24sp"
             android:ems="18"
             android:hint="@string/username"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:visibility="gone"/>
 
         <EditText
             android:id="@+id/email_sign_up"
