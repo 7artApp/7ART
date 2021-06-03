@@ -57,13 +57,6 @@ class SignInActivity : AppCompatActivity() {
 
     }
 
-
-//    override fun onStart() {
-//        super.onStart()
-//
-//        val currentUser = firebaseInstance.currentUser
-//    }
-
     private fun initView() = setContentView(R.layout.activity_sign_in)
 
     private fun googleSignIn() {
@@ -167,22 +160,6 @@ class SignInActivity : AppCompatActivity() {
                 }
             }
     }
-
-
-//    fun signin(view: View) {
-//        if (firebaseInstance.currentUser != null) {
-//            val bundle = Bundle().apply {
-//                putString("email", firebaseInstance.currentUser!!.email)
-//            }
-//            firebaseAnalytics.logEvent("login", bundle)
-//            startActivity(Intent(this, MoviesGenresActivity::class.java))
-//        } else {
-//            val email = emailSignIn.text.toString()
-//            val pass = passwordSignIn.text.toString()
-//
-//            firebaseAuthWithEmailPass(email, pass)
-//        }
-//    }
 
     private fun firebaseAuthWithEmailPass(email: String, pass: String) {
         firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
