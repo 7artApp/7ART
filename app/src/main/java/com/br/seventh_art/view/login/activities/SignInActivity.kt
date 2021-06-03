@@ -44,20 +44,18 @@ class SignInActivity : AppCompatActivity() {
     private val emailSignIn by lazy { findViewById<EditText>(R.id.username_sign_in) }
     private val passwordSignIn by lazy { findViewById<EditText>(R.id.password_sign_in) }
 
-    override fun onStart() {
-        super.onStart()
-        firebaseAuth = FirebaseAuth.getInstance()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
-//        firebaseAuth = FirebaseAuth.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
+
         callbackManager = CallbackManager.Factory.create()
+
         googleSignIn()
+
         signInButton()
 
     }

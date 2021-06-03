@@ -2,30 +2,26 @@ package com.br.seventh_art.view.login.activities
 
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 import com.br.seventh_art.R
 import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
-import com.google.firebase.auth.FirebaseAuth
+import com.br.seventh_art.view.login.viewmodel.LoginViewModel
 
 class SplashActivity : AppCompatActivity() {
 
-    // This is the loading time of the splash screen
-    private val SPLASH_TIME_OUT:Long = 3000 // 1 sec
+    lateinit var viewModel: LoginViewModel
+    private val SPLASH_TIME_OUT: Long = 3000 //  = 1 sec (This is the loading time of the splash screen
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        val auth = FirebaseAuth.getInstance()
-        val logged = auth.currentUser != null
-        val user = auth.currentUser
+        val loginActivity = LoginActivity::class.java
+        val moviesActivity = MoviesGenresActivity::class.java
 
-        val intent = if (logged) {
-            Intent(this, MoviesGenresActivity::class.java)
-        } else {
-            Intent(this, LoginActivity::class.java)
-        }
+        viewModel = LoginViewModel()
 
         Handler().postDelayed({
             // This method will be executed once the timer is over

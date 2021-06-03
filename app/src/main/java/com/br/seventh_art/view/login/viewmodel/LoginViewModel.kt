@@ -10,9 +10,9 @@ import com.google.firebase.auth.FirebaseUser
 class LoginViewModel(
 ) : ViewModel() {
 
-    var email: String? = null
-    var psword: String? = null
-    var firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
+    companion object {
+        var firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
+    }
 
     fun getUser(): FirebaseUser? = firebaseAuth.currentUser ?: null
 
@@ -20,7 +20,7 @@ class LoginViewModel(
         view: View,
         email: String,
         psword: String
-    ) = createUserWithEmailPass(email, psword)
+    ) = createUserWithEmailPass(email, psword, view)
 
     fun signIn(
         view: View,
@@ -38,7 +38,8 @@ class LoginViewModel(
                 val user = getUser()
                 Log.v("LOGIN", user?.email ?: "Usuário desconectado")
                 view?.let {
-                    Toast.makeText(it.context, "Usuário conectado", Toast.LENGTH_LONG).show()
+                    Toast.makeText(it.context, "Usuário criado com sucesso", Toast.LENGTH_LONG)
+                        .show()
                 }
             } else {
                 Log.v("LOGIN", task.exception?.message!!)
@@ -62,3 +63,4 @@ class LoginViewModel(
         Log.v("LOGIN", "Usuário desconectado")
     }
 }
+
