@@ -25,7 +25,6 @@ class SignUpActivity : AppCompatActivity() {
     lateinit var loginViewModel: LoginViewModel
     lateinit var binding: ActivitySignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
-    val button by lazy {findViewById<MaterialButton>(R.id.button_sign_up) }
 
     override fun onStart() {
         super.onStart()

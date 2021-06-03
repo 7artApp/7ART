@@ -29,7 +29,6 @@ import com.google.firebase.ktx.Firebase
 
 
 class SignInActivity : AppCompatActivity() {
-//class SignInActivity : BaseActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
@@ -46,23 +45,18 @@ class SignInActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         initView()
+
         firebaseAuth = FirebaseAuth.getInstance()
+
         callbackManager = CallbackManager.Factory.create()
 
         googleSignIn()
 
         signInButton()
 
-
     }
-
-
-//    override fun onStart() {
-//        super.onStart()
-//
-//        val currentUser = firebaseInstance.currentUser
-//    }
 
     private fun initView() = setContentView(R.layout.activity_sign_in)
 
@@ -168,21 +162,6 @@ class SignInActivity : AppCompatActivity() {
             }
     }
 
-
-//    fun signin(view: View) {
-//        if (firebaseInstance.currentUser != null) {
-//            val bundle = Bundle().apply {
-//                putString("email", firebaseInstance.currentUser!!.email)
-//            }
-//            firebaseAnalytics.logEvent("login", bundle)
-//            startActivity(Intent(this, MoviesGenresActivity::class.java))
-//        } else {
-//            val email = emailSignIn.text.toString()
-//            val pass = passwordSignIn.text.toString()
-//
-//            firebaseAuthWithEmailPass(email, pass)
-//        }
-//    }
 
     private fun firebaseAuthWithEmailPass(email: String, pass: String) {
         firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
