@@ -2,7 +2,6 @@
     <string name="app_name">7ART</string>
 
 
-    <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="email">E-mail</string>
     <!-- Strings used for fragments for navigation -->
@@ -11,11 +10,14 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <string name="disconnected_user">Usuário desconectado</string>
+
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
-<!--    facebook login-->
+
     <string name="facebook_app_id">1455419888129431</string>
     <string name="fb_login_protocol_scheme">fb1455419888129431</string>
+    <string name="username">Username</string>
 
 </resources>

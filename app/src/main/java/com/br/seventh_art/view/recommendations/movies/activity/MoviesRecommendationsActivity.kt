@@ -66,6 +66,10 @@ class   MoviesRecommendationsActivity : AppCompatActivity() {
                 moviesRecList.addAll(itChar)
                 recyclerView.adapter?.notifyDataSetChanged()
             }
+            movie_title.text = moviesRecList[0].title
+            movie_release.text = moviesRecList[0].releaseDate
+            movie_score.text = moviesRecList[0].voteAverage.toString() + " (IMDB)"
+            movie_disclaimer.text = moviesRecList[0].overview
         })
     }
 

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_profile"
+    android:theme="@style/Theme.7ART.NoActionBar"
     tools:context=".view.profile.ProfileActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -98,6 +99,7 @@
         android:layout_height="wrap_content"
         android:text="LOG OUT"
         android:textSize="18dp"
+        android:onClick="signout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.254"

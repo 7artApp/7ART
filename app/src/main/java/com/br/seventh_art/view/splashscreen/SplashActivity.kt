@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.br.seventh_art.R
+import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
 import com.br.seventh_art.view.login.activities.LoginActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class SplashActivity : AppCompatActivity() {
 
@@ -16,6 +18,15 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        val auth = FirebaseAuth.getInstance()
+        val logged = auth.currentUser != null
+        val user = auth.currentUser
+
+        val intent = if (logged) {
+            Intent(this, MoviesGenresActivity::class.java)
+        } else {
+            Intent(this, LoginActivity::class.java)
+        }
 
         Handler().postDelayed({
             // This method will be executed once the timer is over

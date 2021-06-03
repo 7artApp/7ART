@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.7ART.NoActionBar"
     android:background="@drawable/background_bw">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -49,7 +50,7 @@
         android:ems="18"
         android:inputType="textPersonName"
 
-        android:text="@string/username"
+        tools:text="@string/username"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -64,7 +65,7 @@
         android:layout_marginTop="20dp"
         android:ems="18"
         android:inputType="textPassword"
-        android:text="@string/password"
+        tools:text="@string/password"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

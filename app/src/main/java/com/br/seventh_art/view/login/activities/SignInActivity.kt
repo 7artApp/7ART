@@ -1,7 +1,6 @@
 package com.br.seventh_art.view.login.activities
 
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -12,7 +11,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.br.seventh_art.R
 import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
-import com.br.seventh_art.view.login.helper.Utils
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -23,46 +21,48 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.ktx.Firebase
 
 
-class SignInActivity : AppCompatActivity(), Utils {
+class SignInActivity : AppCompatActivity() {
+//class SignInActivity : BaseActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
+    private val firebaseAnalytics = Firebase.analytics
 
     private lateinit var callbackManager: CallbackManager
     private var tryLoginFacebook = false
     private val loginManager = LoginManager.getInstance()
-
-
-    private val googleButton by lazy {findViewById<ImageView>(R.id.google_sign_in)}
+    private val googleButton by lazy { findViewById<ImageView>(R.id.google_sign_in) }
     private val buttonLogin by lazy { findViewById<Button>(R.id.button_log_in) }
     private val emailSignIn by lazy { findViewById<EditText>(R.id.username_sign_in) }
     private val passwordSignIn by lazy { findViewById<EditText>(R.id.password_sign_in) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
+        super.onCreate(savedInstanceState)
+        initView()
         firebaseAuth = FirebaseAuth.getInstance()
         callbackManager = CallbackManager.Factory.create()
 
-        super.onCreate(savedInstanceState)
-
-        initView()
-
         googleSignIn()
 
-        initClick()
+        signInButton()
+
+
     }
 
-    override fun onStart() {
-        super.onStart()
 
-        val currentUser = firebaseAuth.currentUser
-    }
+//    override fun onStart() {
+//        super.onStart()
+//
+//        val currentUser = firebaseInstance.currentUser
+//    }
 
     private fun initView() = setContentView(R.layout.activity_sign_in)
 
@@ -77,8 +77,8 @@ class SignInActivity : AppCompatActivity(), Utils {
             .requestId()
             .build()
 
-        googleSignInClient = GoogleSignIn.getClient(this,googleSignInOptions)
-        googleButton.setOnClickListener{signInGoogle(it)}
+        googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
+        googleButton.setOnClickListener { signInGoogle(it) }
     }
 
     private fun facebookSignIn() {
@@ -144,7 +144,7 @@ class SignInActivity : AppCompatActivity(), Utils {
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
                 Log.w("GoogleSign", "Google sign in failed", e)
-            }catch (e: Exception) {
+            } catch (e: Exception) {
             }
         }
         if (tryLoginFacebook) {
@@ -168,17 +168,40 @@ class SignInActivity : AppCompatActivity(), Utils {
             }
     }
 
-    private fun goToMovies(){
+
+//    fun signin(view: View) {
+//        if (firebaseInstance.currentUser != null) {
+//            val bundle = Bundle().apply {
+//                putString("email", firebaseInstance.currentUser!!.email)
+//            }
+//            firebaseAnalytics.logEvent("login", bundle)
+//            startActivity(Intent(this, MoviesGenresActivity::class.java))
+//        } else {
+//            val email = emailSignIn.text.toString()
+//            val pass = passwordSignIn.text.toString()
+//
+//            firebaseAuthWithEmailPass(email, pass)
+//        }
+//    }
+
+    private fun firebaseAuthWithEmailPass(email: String, pass: String) {
+        firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val user = firebaseAuth.currentUser
+                startActivity(Intent(this, MoviesGenresActivity::class.java))
+            } else {
+                //  setUserEmail(task.exception?.message!!)
+            }
+        }
+    }
+
+    private fun goToMovies() {
         val intent = Intent(this, MoviesGenresActivity::class.java)
         startActivity(intent)
     }
 
-    private fun initClick() {
-        buttonLogin.setOnClickListener() {
-            if (validatePassword(passwordSignIn) && validateName(emailSignIn)) {
-                val intent = Intent(this, MoviesGenresActivity::class.java)
-                startActivity(intent)
-            }
-        }
+    fun signInButton() = buttonLogin.setOnClickListener {
+
+//        signin(MoviesGenresActivity::class, emailSignIn, passwordSignIn)
     }
 }

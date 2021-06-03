@@ -22,4 +22,7 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
     }
 
+    fun signout(view: View) {
+        throw RuntimeException("Test Crash")
+    }
 }

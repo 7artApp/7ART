@@ -31,6 +31,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -68,14 +71,14 @@ dependencies {
 
     //Dependências do Firebase
     implementation platform('com.google.firebase:firebase-bom:26.7.0')
-    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-auth-ktx'
 
     //Dependência do play services
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
 
     //Dependência do CarouselRecyclerview
     implementation 'com.github.sparrow007:carouselrecyclerview:1.2.0'
-    
+
     //Biblioteca do Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
 }
