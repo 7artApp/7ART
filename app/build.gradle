@@ -67,7 +67,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     //Dependências do Facebook
-    implementation 'com.facebook.android:facebook-login:8.2.0'
+    implementation 'com.facebook.android:facebook-android-sdk:[8,9)'
 
     //Dependências do Firebase
     implementation platform('com.google.firebase:firebase-bom:26.7.0')

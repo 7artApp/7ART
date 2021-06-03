@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
@@ -26,41 +25,55 @@ import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.ktx.Firebase
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
 
 
 class SignInActivity : AppCompatActivity() {
-//class SignInActivity : BaseActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
-
     private val firebaseAnalytics = Firebase.analytics
-
     private lateinit var callbackManager: CallbackManager
     private var tryLoginFacebook = false
+
     private val loginManager = LoginManager.getInstance()
     private val googleButton by lazy { findViewById<ImageView>(R.id.google_sign_in) }
-    private val buttonLogin by lazy { findViewById<Button>(R.id.button_log_in) }
     private val emailSignIn by lazy { findViewById<EditText>(R.id.username_sign_in) }
     private val passwordSignIn by lazy { findViewById<EditText>(R.id.password_sign_in) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initView()
+        setContentView(R.layout.activity_sign_in)
+
         firebaseAuth = FirebaseAuth.getInstance()
         callbackManager = CallbackManager.Factory.create()
-
-        googleSignIn()
-
-        signInButton()
-
-
     }
 
-    private fun initView() = setContentView(R.layout.activity_sign_in)
 
-    private fun googleSignIn() {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == 200) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                // Google Sign In was successful, authenticate with Firebase
+                val account = task.getResult(ApiException::class.java)!!
+                Log.d("GoogleSign", "firebaseAuthWithGoogle:" + account.idToken)
+                firebaseAuthWithGoogle(account.idToken!!)
+            } catch (e: ApiException) {
+                // Google Sign In failed, update UI appropriately
+                Log.w("GoogleSign", "Google sign in failed", e)
+            } catch (e: Exception) {
+            }
+            if (tryLoginFacebook) {
+            callbackManager.onActivityResult(requestCode, resultCode, data)
+            }
+        }
+    }
 
+    private fun googleSignIn(view: View) {
         firebaseAuth = FirebaseAuth.getInstance()
 
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -74,7 +87,12 @@ class SignInActivity : AppCompatActivity() {
         googleButton.setOnClickListener { signInGoogle(it) }
     }
 
-    private fun facebookSignIn() {
+    fun signInFace(view: View) {
+        tryLoginFacebook = true
+        facebookSignIn()
+    }
+
+    private fun facebookSignIn(){
         loginManager.logInWithReadPermissions(this, arrayListOf("email", "public_profile"))
         loginManager.registerCallback(callbackManager, object :
             FacebookCallback<LoginResult> {
@@ -92,6 +110,7 @@ class SignInActivity : AppCompatActivity() {
             }
         })
     }
+
 
     private fun firebaseAuthWithFacebook(token: AccessToken) {
         Log.d("facebook", "handleFacebookAccessToken:$token")
@@ -119,31 +138,6 @@ class SignInActivity : AppCompatActivity() {
         startActivityForResult(signInIntent, 200)
     }
 
-    fun signInFace(view: View) {
-        facebookSignIn()
-        tryLoginFacebook = true
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == 200) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                // Google Sign In was successful, authenticate with Firebase
-                val account = task.getResult(ApiException::class.java)!!
-                Log.d("GoogleSign", "firebaseAuthWithGoogle:" + account.idToken)
-                firebaseAuthWithGoogle(account.idToken!!)
-            } catch (e: ApiException) {
-                // Google Sign In failed, update UI appropriately
-                Log.w("GoogleSign", "Google sign in failed", e)
-            } catch (e: Exception) {
-            }
-        }
-        if (tryLoginFacebook) {
-            callbackManager.onActivityResult(requestCode, resultCode, data)
-        }
-    }
 
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
@@ -161,11 +155,25 @@ class SignInActivity : AppCompatActivity() {
             }
     }
 
+    fun signIn(view: View) {
+        if (firebaseAuth.currentUser != null) {
+            val bundle = Bundle().apply {
+                putString("email", firebaseAuth.currentUser!!.email)
+            }
+            firebaseAnalytics.logEvent("login", bundle)
+            startActivity(Intent(this, MoviesGenresActivity::class.java))
+        } else {
+            val email = emailSignIn.text.toString()
+            val pass = passwordSignIn.text.toString()
+
+            firebaseAuthWithEmailPass(email, pass)
+        }
+    }
+
     private fun firebaseAuthWithEmailPass(email: String, pass: String) {
         firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val user = firebaseAuth.currentUser
-                startActivity(Intent(this, MoviesGenresActivity::class.java))
+                goToMovies()
             } else {
                 //  setUserEmail(task.exception?.message!!)
             }
@@ -175,10 +183,5 @@ class SignInActivity : AppCompatActivity() {
     private fun goToMovies() {
         val intent = Intent(this, MoviesGenresActivity::class.java)
         startActivity(intent)
-    }
-
-    fun signInButton() = buttonLogin.setOnClickListener {
-
-//        signin(MoviesGenresActivity::class, emailSignIn, passwordSignIn)
     }
 }

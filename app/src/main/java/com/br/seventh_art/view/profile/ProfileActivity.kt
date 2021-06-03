@@ -1,5 +1,6 @@
 package com.br.seventh_art.view.profile
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,18 +9,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import com.br.seventh_art.R
+import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
+import com.br.seventh_art.view.login.activities.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
-
-    private val imageProfile by lazy { findViewById<ImageView>(R.id.image_profile) }
-    private val username by lazy { findViewById<EditText>(R.id.username_profile) }
-    private val email by lazy { findViewById<EditText>(R.id.email_profile) }
-    private val passwordProfile by lazy { findViewById<Button>(R.id.password_profile) }
-    private val buttonLogOut by lazy { findViewById<Button>(R.id.button_log_out) }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +24,11 @@ class ProfileActivity : AppCompatActivity() {
 
     fun signout(view: View) {
         firebaseAuth.signOut()
+        startActivity(Intent(this, LoginActivity::class.java))
         Log.v("LOGIN", "Usuário desconectado")
+    }
+
+    fun back(view: View) {
+        onBackPressed()
     }
 }

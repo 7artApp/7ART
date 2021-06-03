@@ -30,7 +30,7 @@
             android:fontFamily="@font/bebas_neue_regular"
             android:foregroundGravity="center"
             android:gravity="center"
-            android:text="SIGN up"
+            android:text="SIGN UP"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="60sp"
