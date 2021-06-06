@@ -9,8 +9,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-// https://api.themoviedb.org/3/configuration?api_key=d00ab27062c01a80c4f6a7cefd66a6a5
-
 interface EndPointApi {
 
     /*
@@ -51,5 +49,4 @@ interface EndPointApi {
         @Path("serie_id") serieId: Int,
         @Query("api_key") apiKey: String
     ):SeriesRecommendationsResponse
-
 }

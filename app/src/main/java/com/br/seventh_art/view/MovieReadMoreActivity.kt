@@ -20,8 +20,5 @@ class MovieReadMoreActivity : AppCompatActivity() {
 
         image?.let { readMoreImage.setImageResource(it) }
         readMoreDisclaimer.text = disclaimer
-
-
-
     }
 }

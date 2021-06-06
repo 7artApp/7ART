@@ -9,6 +9,7 @@ import com.br.seventh_art.R
 import com.br.seventh_art.model.genre.moviesgenres.MovieGenre
 import com.br.seventh_art.view.genres.movies.adapter.viewholder.MovieGenresViewHolder
 import com.br.seventh_art.view.recommendations.movies.activity.MoviesRecommendationsActivity
+import com.squareup.picasso.Picasso
 
 class MovieGenresAdapter(val movieGenres: List<MovieGenre>, val context: Context) :
     RecyclerView.Adapter<MovieGenresViewHolder>() {
@@ -22,6 +23,12 @@ class MovieGenresAdapter(val movieGenres: List<MovieGenre>, val context: Context
     override fun getItemCount(): Int = movieGenres.size
 
     override fun onBindViewHolder(holder: MovieGenresViewHolder, position: Int) {
+
+        val imageUrl = "https://image.tmdb.org/t/p/original"
+
+        val image = holder.movie_image
+        Picasso.get().load(imageUrl + listMovie[position].backdropPath).into(image)
+
         val genre = movieGenres.elementAt(position)
 
         holder.movieGenre.text = genre.name

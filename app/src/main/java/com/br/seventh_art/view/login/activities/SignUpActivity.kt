@@ -42,7 +42,6 @@ class SignUpActivity : AppCompatActivity() {
                     this@SignUpActivity.finish()
                 }
             }
-
             toolbarSignUp.setNavigationOnClickListener { onBackPressed() }
         }
     }

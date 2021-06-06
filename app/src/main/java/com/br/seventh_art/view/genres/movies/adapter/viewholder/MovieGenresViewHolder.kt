@@ -8,4 +8,5 @@ import com.br.seventh_art.R
 class MovieGenresViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
     val movieGenre by lazy {itemView.findViewById<TextView>(R.id.textview_movie_genres) }
+    val imageGenre by lazy {itemView.findViewById(R.id.image_genre)}
 }
