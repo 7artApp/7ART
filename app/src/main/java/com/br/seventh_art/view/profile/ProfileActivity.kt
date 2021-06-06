@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import com.br.seventh_art.R
+import com.br.seventh_art.databinding.ActivityProfileBinding
 import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
 import com.br.seventh_art.view.login.activities.LoginActivity
 import com.br.seventh_art.view.login.viewmodel.LoginViewModel
@@ -16,29 +17,29 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 class ProfileActivity : AppCompatActivity() {
-
+    lateinit var binding: ActivityProfileBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
+        binding = ActivityProfileBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
     }
 
-    fun signout(view: View) {
-        firebaseAuth.signOut()
-        startActivity(Intent(this, LoginActivity::class.java))
-        Log.v("LOGIN", "Usuário desconectado")
+    override fun onResume() {
+        super.onResume()
+
+        binding.buttonLogOut.setOnClickListener {
+            firebaseAuth.signOut()
+            startActivity(Intent(this, LoginActivity::class.java))
+            Log.v("LOGIN", "Usuário desconectado")
+        }
+
+        binding.emailProfile.text = firebaseAuth.currentUser.email
+
+        binding.usernameProfile.text = firebaseAuth.currentUser.displayName
+
+        binding.toolbarSignUp.setNavigationOnClickListener { onBackPressed() }
     }
-
-    fun back(view: View) {
-        onBackPressed()
-    }
-
-    fun getName() = firebaseAuth.currentUser.displayName.toString()?: "Username"
-
-    fun getEmail() = firebaseAuth.currentUser.email.toString()?: "E-mail"
-
-
-
-
 }

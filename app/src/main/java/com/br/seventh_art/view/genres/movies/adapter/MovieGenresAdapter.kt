@@ -24,11 +24,6 @@ class MovieGenresAdapter(val movieGenres: List<MovieGenre>, val context: Context
 
     override fun onBindViewHolder(holder: MovieGenresViewHolder, position: Int) {
 
-        val imageUrl = "https://image.tmdb.org/t/p/original"
-
-        val image = holder.movie_image
-        Picasso.get().load(imageUrl + listMovie[position].backdropPath).into(image)
-
         val genre = movieGenres.elementAt(position)
 
         holder.movieGenre.text = genre.name

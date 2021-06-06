@@ -12,12 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="image_genre"
-            android:layout_margin="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
         <TextView
             android:id="@+id/textview_movie_genres"
 
@@ -40,9 +34,6 @@
             app:layout_constraintVertical_bias="0.5"
             app:layout_constraintHorizontal_bias="0.5"
             />
-        </ImageView>
-            android:layout_width=""
-            android:layout_height=""
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
