@@ -1,29 +1,26 @@
 package com.br.seventh_art.view.login.viewmodel
 
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.ktx.Firebase
 
 class LoginViewModel(
 ) : ViewModel() {
 
-    var currentUser: FirebaseUser? = null
-    var email: String? = null
-    var psword: String? = null
-    var firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
-
-    fun getCurrentUser() {
-        val currentUser = firebaseAuth.currentUser
-        setUserEmail(currentUser?.email ?: "Usuário desconectado")
+    companion object {
+        var firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
     }
+
+    fun getUser(): FirebaseUser? = firebaseAuth.currentUser ?: null
 
     fun createUser(
         view: View,
         email: String,
         psword: String
-    ) = createUserWithEmailPass(email, psword)
+    ) = createUserWithEmailPass(email, psword, view)
 
     fun signIn(
         view: View,
@@ -33,36 +30,37 @@ class LoginViewModel(
 
     fun createUserWithEmailPass(
         email: String,
-        psword: String
+        psword: String,
+        view: View? = null
     ) {
         firebaseAuth.createUserWithEmailAndPassword(email, psword).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val user = firebaseAuth.currentUser
-                setUserEmail(user?.email ?: "Usuário desconectado")
+                val user = getUser()
+                Log.v("LOGIN", user?.email ?: "Usuário desconectado")
+                view?.let {
+                    Toast.makeText(it.context, "Usuário criado com sucesso", Toast.LENGTH_LONG)
+                        .show()
+                }
             } else {
-                setUserEmail(task.exception?.message!!)
+                Log.v("LOGIN", task.exception?.message!!)
             }
         }
     }
 
-    fun firebaseAuthWithEmailPass(
-        email: String,
-        psword: String
-    ) {
+    fun firebaseAuthWithEmailPass(email: String, psword: String) {
         firebaseAuth.signInWithEmailAndPassword(email, psword).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val user = firebaseAuth.currentUser
-                setUserEmail(user?.email ?: "Usuário desconectado")
+                Log.v("LOGIN", user?.email ?: "Usuário desconectado")
             } else {
-                setUserEmail(task.exception?.message!!)
+                Log.v("LOGIN", task.exception?.message!!)
             }
         }
     }
 
-    fun setUserEmail(email: String) {}
-
     fun signOut(view: View) {
         firebaseAuth.signOut()
-        setUserEmail("Usuário desconectado")
+        Log.v("LOGIN", "Usuário desconectado")
     }
 }
+

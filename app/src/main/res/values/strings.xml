@@ -19,5 +19,10 @@
     <string name="facebook_app_id">3082958698599849</string>
     <string name="fb_login_protocol_scheme">fb3082958698599849</string>
     <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="sign_in">Sign In</string>
+    <string name="log_in_with">Log in with</string>
+    <string name="sign_up">Sign up</string>
+    <string name="create_account">Create account</string>
 
 </resources>
