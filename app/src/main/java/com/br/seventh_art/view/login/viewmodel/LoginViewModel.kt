@@ -61,6 +61,7 @@ class LoginViewModel(
     fun signOut(view: View) {
         firebaseAuth.signOut()
         Log.v("LOGIN", "Usuário desconectado")
+
     }
 }
 

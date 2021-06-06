@@ -11,7 +11,9 @@ import android.widget.ImageView
 import com.br.seventh_art.R
 import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
 import com.br.seventh_art.view.login.activities.LoginActivity
+import com.br.seventh_art.view.login.viewmodel.LoginViewModel
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -31,4 +33,12 @@ class ProfileActivity : AppCompatActivity() {
     fun back(view: View) {
         onBackPressed()
     }
+
+    fun getName() = firebaseAuth.currentUser.displayName.toString()?: "Username"
+
+    fun getEmail() = firebaseAuth.currentUser.email.toString()?: "E-mail"
+
+
+
+
 }
