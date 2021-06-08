@@ -16,8 +16,8 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 
-    <string name="facebook_app_id">1455419888129431</string>
-    <string name="fb_login_protocol_scheme">fb1455419888129431</string>
+    <string name="facebook_app_id">1423013591366469</string>
+    <string name="fb_login_protocol_scheme">fb1423013591366469</string>
     <string name="username">Username</string>
 
 </resources>
