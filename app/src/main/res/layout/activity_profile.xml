@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/black"
     android:layout_height="match_parent"
-    android:background="@drawable/background_profile"
     android:theme="@style/Theme.7ART.NoActionBar"
     tools:context=".view.profile.ProfileActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar_sign_up"
+        android:id="@+id/toolbar_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black"
@@ -19,8 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.027"
-        app:navigationIcon="@drawable/abc_vector_test"
-        android:onClick="back">
+        app:navigationIcon="@drawable/abc_vector_test">
 
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -39,84 +38,38 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/user_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/bebas_neue_regular"
-        android:text="@string/username"
+        android:text="@string/user_email"
         android:textColor="@color/white"
-        android:textSize="30dp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_profile"
         app:layout_constraintVertical_bias="0.0" />
 
-    <EditText
-        android:id="@+id/username_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="15"
-        android:inputType="textPersonName"
-        android:text="@string/username"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.25" />
-
-    <EditText
-        android:id="@+id/email_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="15"
-        android:inputType="textPersonName"
-        android:text="@string/email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_profile" />
-
-    <EditText
-        android:id="@+id/password_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="15"
-        android:inputType="textPassword"
-        android:text="@string/password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_profile" />
-
     <Button
-        android:id="@+id/button_log_out"
+        android:id="@+id/button_sign_out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LOG OUT"
-        android:textSize="18dp"
         android:onClick="signout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.254"
+        android:text="@string/sign_out"
+        android:textColor="@color/white"
+        android:background="@drawable/white_border_button"
+        android:textSize="26sp"
+        android:paddingVertical="12sp"
+        android:paddingHorizontal="18sp"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/user_email"
+        android:layout_marginVertical="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_profile" />
-
-    <Button
-        android:id="@+id/button_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SAVE"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_log_out"
-        app:layout_constraintTop_toBottomOf="@+id/password_profile"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:cornerRadius="32dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

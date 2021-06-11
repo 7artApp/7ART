@@ -1,15 +1,16 @@
 package com.br.seventh_art.view.recommendations.series.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.br.seventh_art.R
 import com.br.seventh_art.model.recommendation.seriesrecommendations.Result
 import com.br.seventh_art.view.recommendations.series.adapter.SeriesRecAdapter
 import com.br.seventh_art.view.recommendations.series.viewmodel.SeriesRecommendationsViewModel
+import com.google.android.material.appbar.MaterialToolbar
 import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
 import com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
 
@@ -26,7 +27,7 @@ class SeriesRecommendationsActivity : AppCompatActivity() {
 
     //DECLARAÇÃO DO RECYCLERVIEW ASSOCIADA À ACTIVITY
     private val recyclerView by lazy { findViewById<CarouselRecyclerview>(R.id.series_recommendations_recycler_view) }
-
+    private val toolbar by lazy { findViewById<MaterialToolbar>(R.id.series_toolbar) }
     private val serie_title by lazy { findViewById<TextView>(R.id.serie_title) }
     private val serie_release by lazy { findViewById<TextView>(R.id.serie_release) }
     private val serie_score by lazy { findViewById<TextView>(R.id.serie_score) }
@@ -40,12 +41,18 @@ class SeriesRecommendationsActivity : AppCompatActivity() {
 
         setRecyclerView()
         setViewData()
+
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+            finish()
+        }
     }
 
     private fun initView() {
         setContentView(R.layout.activity_serie_recommendations)
 
     }
+
     private fun getIntentData(): Int? {
 
         val intent = intent.extras
@@ -54,7 +61,7 @@ class SeriesRecommendationsActivity : AppCompatActivity() {
         return serieGenre
     }
 
-    private fun setViewModel(){
+    private fun setViewModel() {
 
         val serieGenre = getIntentData()
         Log.d("GENRE", serieGenre.toString())
@@ -73,7 +80,7 @@ class SeriesRecommendationsActivity : AppCompatActivity() {
     }
 
 
-    private fun setRecyclerView(){
+    private fun setRecyclerView() {
         recyclerView.adapter = SeriesRecAdapter(seriesRecList, this)
         recyclerView.set3DItem(false)
         recyclerView.setAlpha(true)
@@ -81,7 +88,7 @@ class SeriesRecommendationsActivity : AppCompatActivity() {
 
     }
 
-    private fun setViewData(){
+    private fun setViewData() {
 
         recyclerView.setItemSelectListener(object : CarouselLayoutManager.OnSelected {
             override fun onItemSelected(position: Int) {

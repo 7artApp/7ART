@@ -21,6 +21,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -43,6 +44,8 @@ class SignInActivity : AppCompatActivity() {
     private val buttonLogin by lazy { findViewById<Button>(R.id.button_log_in) }
     private val emailSignIn by lazy { findViewById<EditText>(R.id.username_sign_in) }
     private val passwordSignIn by lazy { findViewById<EditText>(R.id.password_sign_in) }
+    private val toolbar by lazy { findViewById<MaterialToolbar>(R.id.toolbar_sign_in) }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +56,8 @@ class SignInActivity : AppCompatActivity() {
         googleSignIn()
 
         signInButton()
+
+        toolbar.setNavigationOnClickListener { onBackPressed() }
 
 
     }
@@ -88,6 +93,7 @@ class SignInActivity : AppCompatActivity() {
             override fun onSuccess(loginResult: LoginResult) {
                 Log.d("facebook", "facebook:onSuccess:$loginResult")
                 firebaseAuthWithFacebook(loginResult.accessToken)
+                goToMovies()
             }
 
             override fun onCancel() {

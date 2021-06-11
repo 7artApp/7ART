@@ -14,6 +14,7 @@ import com.br.seventh_art.databinding.ActivitySignUpBinding
 import com.br.seventh_art.utils.view.BaseActivity
 import com.br.seventh_art.view.genres.movies.activity.MoviesGenresActivity
 import com.br.seventh_art.view.login.viewmodel.LoginViewModel
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.auth.FirebaseAuth
@@ -26,6 +27,8 @@ class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
     val button by lazy {findViewById<MaterialButton>(R.id.button_sign_up) }
+    private val toolbar by lazy { findViewById<MaterialToolbar>(R.id.toolbar_sign_up) }
+
 
     override fun onStart() {
         super.onStart()
@@ -47,6 +50,8 @@ class SignUpActivity : AppCompatActivity() {
                 createUser(this.root)
             }
         }
+
+        toolbar.setNavigationOnClickListener { onBackPressed() }
     }
 
     fun createUser(view: View) {

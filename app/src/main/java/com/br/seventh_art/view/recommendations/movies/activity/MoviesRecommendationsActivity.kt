@@ -9,11 +9,12 @@ import androidx.lifecycle.ViewModelProviders
 import com.br.seventh_art.R
 import com.br.seventh_art.model.recommendation.moviesrecommendations.Result
 import com.br.seventh_art.view.recommendations.movies.adapter.MoviesRecAdapter
+import com.google.android.material.appbar.MaterialToolbar
 import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
 import com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
 
 
-class   MoviesRecommendationsActivity : AppCompatActivity() {
+class MoviesRecommendationsActivity : AppCompatActivity() {
 
     //DECLARAÇÃO DA VIEWMODEL DE MOVIE RECOMMENDATIONS
     private val MoviesRecommendationsViewModel by lazy {
@@ -27,7 +28,7 @@ class   MoviesRecommendationsActivity : AppCompatActivity() {
 
     //DECLARAÇÃO DO RECYCLERVIEW ASSOCIADA À ACTIVITY
     private val recyclerView by lazy { findViewById<CarouselRecyclerview>(R.id.movies_recommendations_recycler_view) }
-
+    private val toolbar by lazy { findViewById<MaterialToolbar>(R.id.movies_toolbar) }
     private val movie_title by lazy { findViewById<TextView>(R.id.movie_title) }
     private val movie_release by lazy { findViewById<TextView>(R.id.movie_release) }
     private val movie_score by lazy { findViewById<TextView>(R.id.movie_score) }
@@ -41,12 +42,18 @@ class   MoviesRecommendationsActivity : AppCompatActivity() {
 
         setRecyclerView()
         setViewData()
+
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+            finish()
+        }
     }
 
     private fun initView() {
-    setContentView(R.layout.activity_movies_recommendations)
+        setContentView(R.layout.activity_movies_recommendations)
 
     }
+
     private fun getIntentData(): Int? {
 
         val intent = intent.extras
@@ -55,7 +62,7 @@ class   MoviesRecommendationsActivity : AppCompatActivity() {
         return movieGenre
     }
 
-    private fun setViewModel(){
+    private fun setViewModel() {
 
         val movieGenre = getIntentData()
         Log.d("GENRE", movieGenre.toString())
@@ -74,7 +81,7 @@ class   MoviesRecommendationsActivity : AppCompatActivity() {
     }
 
 
-    private fun setRecyclerView(){
+    private fun setRecyclerView() {
         recyclerView.adapter = MoviesRecAdapter(moviesRecList, this)
         recyclerView.set3DItem(false)
         recyclerView.setAlpha(true)
@@ -82,9 +89,9 @@ class   MoviesRecommendationsActivity : AppCompatActivity() {
 
     }
 
-    private fun setViewData(){
+    private fun setViewData() {
 
-       recyclerView.setItemSelectListener(object : CarouselLayoutManager.OnSelected {
+        recyclerView.setItemSelectListener(object : CarouselLayoutManager.OnSelected {
             override fun onItemSelected(position: Int) {
                 movie_title.text = moviesRecList[position].title
                 movie_release.text = moviesRecList[position].releaseDate
